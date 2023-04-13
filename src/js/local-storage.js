@@ -4,15 +4,27 @@ let queuedMovies = JSON.parse(localStorage.getItem('queuedMovies')) || [];
 const addToWatchedBtn = document.querySelector('#add-to-watched-btn');
 const addToQueueBtn = document.querySelector('#add-to-queue-btn');
 
+addToWatchedBtn.addEventListener('click', e => {
+  const movieId = e.target.getAttribute('data-id');
+  const index = watchedMovies.indexOf(movieId);
+  if (index !== -1) {
+    watchedMovies.splice(index, 1);
+    return localStorage.setItem('watchedMovies', JSON.stringify(watchedMovies));
+  }
 
-addToWatchedBtn.addEventListener('click', () => {
-  const movieId = // отримати id фільму з API
   watchedMovies.push(movieId);
-  localStorage.setItem('watchedMovies', JSON.stringify(watchedMovies));
+  return localStorage.setItem('watchedMovies', JSON.stringify(watchedMovies));
 });
 
-addToQueueBtn.addEventListener('click', () => {
-  const movieId = // отримати id фільму з API
+addToQueueBtn.addEventListener('click', e => {
+  const movieId = e.target.getAttribute('data-id');
+  const index = watchedMovies.indexOf(movieId);
+
+  if (index !== -1) {
+    watchedMovies.splice(index, 1);
+    return localStorage.setItem('watchedMovies', JSON.stringify(watchedMovies));
+  }
+
   queuedMovies.push(movieId);
-  localStorage.setItem('queuedMovies', JSON.stringify(queuedMovies));
+  return localStorage.setItem('queuedMovies', JSON.stringify(queuedMovies));
 });
