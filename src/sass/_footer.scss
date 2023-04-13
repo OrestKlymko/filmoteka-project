@@ -7,16 +7,16 @@
 
 .footer-rights {
     flex-direction: column;
-
-    @media screen and (miin-width: 768px) {
+    
+    @media screen and (min-width: 768px) {
         & {
-            flex-direction: row;;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        flex-direction: row;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+            }
         }
     }
-}
 
 .footer-rights__reserved {
     display: flex;
