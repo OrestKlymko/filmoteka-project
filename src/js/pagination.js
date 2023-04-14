@@ -41,15 +41,13 @@ function pagination(el) {
     },
   };
 
-  console.log(options);
-  console.log(pageCount);
   const pagination = new Pagination(container, options);
 }
 
 getPopularMoviesAPI
   .fetchPopularMovies()
   .then(data => {
-    markuplist(data);
+    // markuplist(data);
     // refs.listEl.innerHTML = filmList;
     pagination(data);
   })
@@ -59,7 +57,6 @@ getPopularMoviesAPI
 
 function onNextPage(event) {
   pageCount = Number(event.target.textContent);
-  console.log(pageCount);
   pageButtonNumber();
   // pageButtonNext();
 }
@@ -100,8 +97,7 @@ function pageButtonNumber() {
 
   if (Number.isInteger(getPopularMoviesAPI.page)) {
     getPopularMoviesAPI.fetchPopularMovies().then(el => {
-      markuplist(el);
-
+      // markuplist(el);
       // refs.listEl.innerHTML = filmList;
     });
   }
