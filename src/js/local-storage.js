@@ -1,30 +1,50 @@
+// Функція для запиту на бек, видалити в майбутньому і зробити імпорт
+const MAIN_URL = 'https://api.themoviedb.org/3';
+const API_KEY = 'ca3ef83497283bd11ad4f2544336ab4a';
+
+async function getInfoMovie(movie_id) {
+  const url = `${MAIN_URL}/movie/${movie_id}?api_key=${API_KEY}&language=en-US`;
+  return await fetch(url)
+    .then(response => response.json())
+    .catch(error => {});
+}
+////////////////////////////////////////////////////////////////////////////////////
+
 let watchedMovies = JSON.parse(localStorage.getItem('watchedMovies')) || [];
 let queuedMovies = JSON.parse(localStorage.getItem('queuedMovies')) || [];
 
-const addToWatchedBtn = document.querySelector('#add-to-watched-btn');
-const addToQueueBtn = document.querySelector('#add-to-queue-btn');
+const addToWatchedBtn = document.querySelector('.watchedBtn');
+const addToQueueBtn = document.querySelector('.queueBtn');
 
-addToWatchedBtn.addEventListener('click', e => {
-  const movieId = e.target.getAttribute('data-id');
-  const index = watchedMovies.indexOf(movieId);
-  if (index !== -1) {
-    watchedMovies.splice(index, 1);
-    return localStorage.setItem('watchedMovies', JSON.stringify(watchedMovies));
+addToWatchedBtn.addEventListener('click', async e => {
+  const movieId = 594767; // e.target.getAttribute('data-id');
+  const movieObj = await getInfoMovie(movieId);
+
+  //   Перевірка на наявність фільму в масиві 
+  const isMovieInWatched = watchedMovies.some(
+    movie => movie.id === movieObj.id
+  );
+
+  if (isMovieInWatched) {
+    watchedMovies = watchedMovies.filter(movie => movie.id !== movieObj.id); //Видалення, якщо фільм вже є в масиві
+  } else {  
+    watchedMovies.push(movieObj); // Якщо немає, додаємо фільм в масив
   }
 
-  watchedMovies.push(movieId);
   return localStorage.setItem('watchedMovies', JSON.stringify(watchedMovies));
 });
 
-addToQueueBtn.addEventListener('click', e => {
-  const movieId = e.target.getAttribute('data-id');
-  const index = watchedMovies.indexOf(movieId);
+addToQueueBtn.addEventListener('click', async e => {
+  const movieId = 594767; // e.target.getAttribute('data-id');
+  const movieObj = await getInfoMovie(movieId);
 
-  if (index !== -1) {
-    watchedMovies.splice(index, 1);
-    return localStorage.setItem('watchedMovies', JSON.stringify(watchedMovies));
+  //   Перевірка на наявність фільму в масиві
+  const isMovieInQueue = queuedMovies.some(movie => movie.id === movieObj.id); //Видалення, якщо фільм вже є в масиві
+  if (isMovieInQueue) {
+    queuedMovies = queuedMovies.filter(movie => movie.id !== movieObj.id);
+  } else {
+    queuedMovies.push(movieObj); // Якщо немає, додаємо фільм в масив
   }
 
-  queuedMovies.push(movieId);
   return localStorage.setItem('queuedMovies', JSON.stringify(queuedMovies));
 });
