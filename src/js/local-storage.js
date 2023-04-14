@@ -1,7 +1,10 @@
 import getMovieById from './get-movie-by-id';
 
-export const watchedMovies = JSON.parse(localStorage.getItem('watchedMovies')) || [];
-export const queuedMovies = JSON.parse(localStorage.getItem('queuedMovies')) || [];
+export const watchedMovies =
+  JSON.parse(localStorage.getItem('watchedMovies')) || [];
+export const queuedMovies =
+  JSON.parse(localStorage.getItem('queuedMovies')) || [];
+// import { watchedMovies, queuedMovies } from './local-storage'; Отримати масиви з об'єктами фільмів в іншому файлі
 
 const addToWatchedBtn = document.querySelector('.watchedBtn');
 const addToQueueBtn = document.querySelector('.queueBtn');
