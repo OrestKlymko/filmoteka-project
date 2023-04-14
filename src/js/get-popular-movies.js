@@ -5,7 +5,7 @@ const API_KEY = '?api_key=f7d7a9b2e374f67b5381a74b61fb7dc2';
 export default async function getPopularMovies() {
   try {
     const response = await fetch(
-      `${BASE_URL}/movie/popular${API_KEY}&language=uk&page=1`
+      `${BASE_URL}/movie/popular${API_KEY}&page=1&language=en-US`
     );    
     return await response.json();
 

@@ -7,7 +7,7 @@ export default async function getMovieDetails(movieName) {
   try {
     const response = await fetchMoviesByName(movieName);
     const movieId = response.results[0].id;
-    const movieDetailsResponse = await fetch(`${BASE_URL}/movie/${movieId}${API_KEY}&language=uk`);
+    const movieDetailsResponse = await fetch(`${BASE_URL}/movie/${movieId}${API_KEY}&language=en-US`);
     if (!movieDetailsResponse.ok) {
       throw new Error(`Failed to fetch movie details for "${movieName}"`);
     }
