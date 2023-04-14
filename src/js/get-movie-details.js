@@ -6,9 +6,6 @@ const API_KEY = '?api_key=f7d7a9b2e374f67b5381a74b61fb7dc2';
 export default async function getMovieDetails(movieName) {
   try {
     const response = await fetchMoviesByName(movieName);
-    if (response.results.length === 0) {
-      throw new Error(`No movies found with name "${movieName}"`);
-    }
     const movieId = response.results[0].id;
     const movieDetailsResponse = await fetch(`${BASE_URL}/movie/${movieId}${API_KEY}&language=uk`);
     if (!movieDetailsResponse.ok) {
