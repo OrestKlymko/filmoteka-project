@@ -1,3 +1,12 @@
+import Pagination from 'tui-pagination';
+
+const refs = {
+  pageButton: document.querySelector('.tui-pagination'),
+};
+let pageCount = 1;
+
+refs.pageButton.addEventListener('click', onNextPage);
+
 function pagination(el) {
   const container = document.getElementById('tui-pagination-container');
   const options = {
@@ -30,4 +39,11 @@ function pagination(el) {
   console.log(options);
   console.log(pageCount);
   const pagination = new Pagination(container, options);
+}
+
+function onNextPage(event) {
+  pageCount = event.target.textContent;
+  console.log(pageCount);
+  // pagination.setData(pagination, page, pageCount);
+  loadMore();
 }
