@@ -1,7 +1,7 @@
 import getMovieById from './get-movie-by-id';
 
-let watchedMovies = JSON.parse(localStorage.getItem('watchedMovies')) || [];
-let queuedMovies = JSON.parse(localStorage.getItem('queuedMovies')) || [];
+export const watchedMovies = JSON.parse(localStorage.getItem('watchedMovies')) || [];
+export const queuedMovies = JSON.parse(localStorage.getItem('queuedMovies')) || [];
 
 const addToWatchedBtn = document.querySelector('.watchedBtn');
 const addToQueueBtn = document.querySelector('.queueBtn');
