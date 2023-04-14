@@ -41,6 +41,17 @@ function pagination(el) {
   const pagination = new Pagination(container, options);
 }
 
+getPopularMovies()
+  .then(data => {
+    console.log(data);
+    markuplist(data);
+    refs.listEl.innerHTML = imagesList;
+    pagination(data);
+  })
+  .catch(error => {
+    console.log(error);
+  });
+
 function onNextPage(event) {
   pageCount = event.target.textContent;
   console.log(pageCount);
