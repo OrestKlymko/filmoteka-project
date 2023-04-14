@@ -11,6 +11,6 @@ export function spinnerLoader() {
 
 // if (data.total_page === current.page || data.total_page === 0){
   // spinner.classList.add('is-hidden')
-  // remove
+  // return
 // }  spinner.classList.remove('is-hidden')
 
