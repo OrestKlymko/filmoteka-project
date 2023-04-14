@@ -43,7 +43,6 @@ function pagination(el) {
 
 getPopularMovies()
   .then(data => {
-    console.log(data);
     markuplist(data);
     refs.listEl.innerHTML = imagesList;
     pagination(data);
@@ -54,7 +53,5 @@ getPopularMovies()
 
 function onNextPage(event) {
   pageCount = event.target.textContent;
-  console.log(pageCount);
-  // pagination.setData(pagination, page, pageCount);
-  loadMore();
+  // loadMore();
 }
