@@ -1,0 +1,32 @@
+.tui-pagination {
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+
+.tui-page-btn {
+  font-size: 12px;
+  color: #000000;
+  width: 40px;
+  height: 40px;
+  padding: 11px 8px;
+  border: transparent;
+  display: inline-block;
+  text-align: center;
+  cursor: pointer;
+
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+}
+
+.tui-is-selected {
+  width: 40px;
+  height: 40px;
+  background-color: #b92f2c;
+  color: #ffffff;
+  border-radius: 5px;
+}
