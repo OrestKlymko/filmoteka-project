@@ -1,17 +1,24 @@
-const BASE_URL = 'https://api.themoviedb.org/3';
-const API_KEY = '?api_key=f7d7a9b2e374f67b5381a74b61fb7dc2';
+export class getPopularMovies {
+  BASE_URL = 'https://api.themoviedb.org/3';
+  API_KEY = '?api_key=f7d7a9b2e374f67b5381a74b61fb7dc2';
+  page = 1;
 
+  async fetchPopularMovies() {
+    try {
+      const response = await fetch(
+        `${this.BASE_URL}/movie/popular${this.API_KEY}&page=${this.page}&language=en-US`
+      );
+      return await response.json();
 
-export default async function getPopularMovies() {
-  try {
-    const response = await fetch(
-      `${BASE_URL}/movie/popular${API_KEY}&page=1&language=en-US`
-    );    
-    return await response.json();
+    } catch (error) {
 
-  } catch (error) {
-
-    console.log(error);
+      throw new Error(error.message);
+    }
+  }
+  incrementPage() {
+    this.page += 1;
+  }
+  resetPage() {
+    this.page = 1;
   }
 }
-
