@@ -20,10 +20,10 @@ addToWatchedBtn.addEventListener('click', async e => {
 
   if (isMovieInWatched) {
     watchedMovies = watchedMovies.filter(movie => movie.id !== movieObj.id); //Видалення, якщо фільм вже є в масиві
-  } else {
-    watchedMovies.push(movieObj); // Якщо немає, додаємо фільм в масив
+    return localStorage.setItem('watchedMovies', JSON.stringify(watchedMovies));
   }
 
+  watchedMovies.push(movieObj); // Якщо немає, додаємо фільм в масив
   return localStorage.setItem('watchedMovies', JSON.stringify(watchedMovies));
 });
 
@@ -35,9 +35,9 @@ addToQueueBtn.addEventListener('click', async e => {
   const isMovieInQueue = queuedMovies.some(movie => movie.id === movieObj.id); //Видалення, якщо фільм вже є в масиві
   if (isMovieInQueue) {
     queuedMovies = queuedMovies.filter(movie => movie.id !== movieObj.id);
-  } else {
-    queuedMovies.push(movieObj); // Якщо немає, додаємо фільм в масив
+    return localStorage.setItem('queuedMovies', JSON.stringify(queuedMovies));
   }
 
+  queuedMovies.push(movieObj); // Якщо немає, додаємо фільм в масив
   return localStorage.setItem('queuedMovies', JSON.stringify(queuedMovies));
 });
