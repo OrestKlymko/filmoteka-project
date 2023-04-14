@@ -10,10 +10,11 @@
     
     @media screen and (min-width: 768px) {
         & {
-        flex-direction: row;
         display: flex;
+        flex-direction: row;
         align-items: center;
         justify-content: center;
+        width: 100%;
             }
         }
     }
