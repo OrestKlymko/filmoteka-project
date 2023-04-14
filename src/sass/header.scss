@@ -1,0 +1,208 @@
+$mobile: 480px;
+$tablet: 768px;
+$desktop: 1200px;
+
+.header__container {
+  position: absolute;
+}
+
+.header {
+  max-width: $mobile;
+  height: 460px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 14px;
+  border-radius: 10px;
+  background-image: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.4) 65.37%), 
+  url(../images/image-mobile-1x.jpg);
+
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+
+    @media (min-device-pixel-ratio: 2),
+        screen and (min-resolution: 192dpi),
+        screen and (min-resolution: 2dppx) {
+            background-image: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.4) 65.37%),
+            url(../images/image-mobile-2x.jpg);
+    }
+
+        //@include tablet 
+        @media screen and (min-width: $tablet) {
+          max-width: $tablet;
+        background-image: linear-gradient(273.67deg, rgba(0, 0, 0, 0.49) -2.09%, rgba(0, 0, 0, 0) 99.83%),
+        url(../images/image-tablet-1x.jpg);
+        @media (min-device-pixel-ratio: 2),
+        screen and (min-resolution: 192dpi),
+        screen and (min-resolution: 2dppx) {
+        background-image: linear-gradient(273.67deg, rgba(0, 0, 0, 0.49) -2.09%, rgba(0, 0, 0, 0) 99.83%),
+        url(../images/image-tablet-2x.jpg);
+
+        border-radius: 10px;
+        }
+        }
+
+        //@include desktop 
+        @media screen and (min-width: $desktop) {
+          max-width: $desktop;
+        background-image:linear-gradient(273.67deg, rgba(0, 0, 0, 0.49) -2.09%, rgba(0, 0, 0, 0) 99.83%), 
+        url(../images/image-desktop-1x.jpg);
+        @media (min-device-pixel-ratio: 2),
+        (min-resolution: 192dpi),
+        (min-resolution: 2dppx) {
+         background-image: linear-gradient(273.67deg, rgba(0, 0, 0, 0.49) -2.09%, rgba(0, 0, 0, 0) 99.83%), 
+         url(../images/image-desktop-2x.jpg);
+
+         border-radius: 15px;
+        }
+        }
+}
+
+.menu {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+
+  @media screen and (min-width: $tablet) {
+    left: 44%;
+    gap: 4px;
+  }
+  @media screen and (min-width: $desktop) {
+    left: 18%;
+  }
+  
+  }
+
+.menu__item__home {
+    width: 87px;
+    height: 34px;
+    padding: 10px 26px;
+    
+    background: #000000;
+    border-radius: 100px;
+
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1.17;
+    color: #FFFFFF;
+    text-transform: uppercase;
+
+    @media screen and (min-width: $tablet) {
+      width: 83px;
+      height: 38px;
+  }
+}
+
+.menu__item__library {
+    width: 113px;
+    height: 34px;
+    padding: 10px 22px;
+
+    background: #FFFFFF;
+    border-radius: 100px;
+
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: calc( 14 / 12);
+    color: #000000;
+    text-transform: uppercase;
+
+    @media screen and (min-width: $tablet) {
+    width: 109px;
+    height: 38px;
+    }
+    }
+
+    .header__form {
+      position: relative;
+      top: 10%;
+      //margin-top: 8px;
+      margin-left: 14px;
+
+      @media screen and (min-width: $tablet) {
+        top: 0;
+      }
+    }
+
+    .search-form {
+      width: 252px;
+            
+      display: flex;
+      align-items:center;
+      justify-content: center;
+      background-color: #FFFFFF;
+      border-radius: 100px;
+
+      @media screen and (min-width: $tablet) {
+        width: 165px;
+      }
+      
+    }
+    
+    .search-form input {
+      width: 80%;
+      border: none;
+      outline: none;
+      padding: 10px 10px;
+      border-radius: 100px;
+      
+      &::placeholder {
+        font-family: 'Roboto';
+        font-style: normal;
+         font-weight: 400;
+         font-size: 12px;
+         line-height: calc(14 / 12);
+          color: #000000;
+      }
+    }
+    
+    .search-form button {
+      width: 20%;
+      border: none;
+      outline: none;
+      padding: 10px 10px;
+
+    }
+
+.header__logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 312px;
+
+  @media screen and (min-width: $tablet) {
+    justify-content: flex-start;
+  }
+
+  @media screen and (min-width: $desktop) {
+    justify-content: flex-start;
+}
+  }
+
+.logo__header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: transparent;
+  
+
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 32px;
+  line-height: calc(38 / 32);
+  color: #FFFFFF;
+
+}
+
+.icon__film {
+   fill: #FFFFFF;
+   width: 100%;
+   height: 100%;
+   margin-right: 11px;
+}
