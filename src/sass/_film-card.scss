@@ -65,7 +65,7 @@
     font-size: 12px;
     line-height: 1.33;
     text-transform: uppercase;
-    color: #000000;
+    color: var(--headline-bcg-color);
 
     @media screen and (min-width: 1280px) {
         font-style: normal;
@@ -83,7 +83,7 @@
     font-weight: 500;
     font-size: 12px;
     line-height: 1.33;
-    color: #B92F2C;
+    color: var(--description-color);
     
     @media screen and (min-width: 1280px) {
         font-style: normal;
@@ -96,7 +96,7 @@
 .card__genres {
     padding-right: 5px;
     margin-right: 5px;
-    border-right: 1px solid #B92F2C;
-    color: #B92F2C;
+    border-right: 1px solid var(--description-color);
+    color: var(--description-color);
     
 }
