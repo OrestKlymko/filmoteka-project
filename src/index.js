@@ -1,1 +1,1 @@
-import './movie_modal';
+import './js/movie_modal';

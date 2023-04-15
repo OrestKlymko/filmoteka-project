@@ -1,4 +1,4 @@
-const closeButton = document.querySelector('.modal__btn-close');
+const closeButton = document.querySelector('.modal__btn--close');
 closeButton.addEventListener('click', closeModal);
 
 document.addEventListener('keydown', event => {

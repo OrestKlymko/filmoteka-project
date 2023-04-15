@@ -1,3 +1,4 @@
+//------------------------------------------main styles for modal
 .modal {
   position: fixed;
   width: 100%;
@@ -35,6 +36,41 @@
     height: auto;
   }
 }
+
+// ------------------------------------------modal close btn
+.modal__btn--close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 14px;
+  height: 14px;
+  cursor: pointer;
+}
+
+.modal__btn--close::before,
+.modal__btn--close::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 14px;
+  height: 2px;
+  background-color: var(--headline-bcg-color);
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.modal__btn--close::after {
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+.modal__btn--close:hover::before,
+.modal__btn--close:hover::after {
+  background-color: var(--description-color);
+  height: 3px;
+  transition: background-color var(--default-animation),
+    height var(--default-animation);
+}
+
+//------------------------------------------shortstory-box
 .shortstory {
   padding: 48px 20px 40px 20px;
   @media screen and (min-width: 768px) {
@@ -89,24 +125,28 @@
 .shortstory__info--text-color {
   color: #8c8c8c;
 }
-.shortstory__item--active::after {
-  content: '/';
-  margin-right: 5px;
-  margin-left: 5px;
-}
+
 .shortstory__item--active,
-span {
+.shortstory__item--disabled {
   display: inline-block;
-  background: #f7f7f7;
+  color: #ffffff;
+  background-color: var(--description-color);
   border-radius: 5px;
   padding: 1px 4px;
 }
-.shortstory__item span {
+.shortstory__item--disabled {
   color: var(--headline-bcg-color);
+  background: #f7f7f7;
+}
+.shortstory__item--active + span {
+  margin: 0 3px;
+  color: #8c8c8c;
 }
 .shortstory__item:not(:first-child) {
   margin-top: 8px;
 }
+
+//------------------------------------------excerpt-box
 .excerpt__title {
   margin-top: 20px;
   text-transform: uppercase;
@@ -122,6 +162,8 @@ span {
   line-height: 1.66;
   margin-top: 8px;
 }
+
+//------------------------------------------shortstory__btn
 .shortstory__btn {
   display: flex;
   justify-content: center;
@@ -152,40 +194,12 @@ span {
   background-color: #ffffff;
   box-shadow: 0px 0px 7px rgba(27, 27, 27, 0.15);
   color: var(--description-color);
-  transition: background-color var(--default-animation), border var(--default-animation), box-shadow var(--default-animation), color var(--default-animation);
-}
-// ------------------------------------------modal close btn
-.modal__btn-close {
-  position: absolute;
-  top: 16px;
-  right: 16px;
-  width: 14px;
-  height: 14px;
-  cursor: pointer;
+  transition: background-color var(--default-animation),
+    border var(--default-animation), box-shadow var(--default-animation),
+    color var(--default-animation);
 }
 
-.modal__btn-close::before,
-.modal__btn-close::after {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 14px;
-  height: 2px;
-  background-color: var(--headline-bcg-color);
-  transform: translate(-50%, -50%) rotate(45deg);
-}
-
-.modal__btn-close::after {
-  transform: translate(-50%, -50%) rotate(-45deg);
-}
-.modal__btn-close:hover::before,
-.modal__btn-close:hover::after {
-  background-color: var(--description-color);
-  height: 3px;
-  transition: background-color var(--default-animation), height var(--default-animation);
-}
-
+//------------------------------------------shortstory__btn--play
 .shortstory__button--play {
   position: absolute;
   top: 45%;
@@ -205,7 +219,7 @@ span {
 }
 
 .shortstory__button--play:hover {
-  opacity: 0.8; 
+  opacity: 0.8;
 }
 
 .shortstory__button--play::before {
