@@ -65,16 +65,16 @@ $desktop: 1280px;
   display: flex;
   align-items: flex-start;
   gap: 10px;
+  z-index: 1;
 
   @media screen and (min-width: $tablet) {
     left: 44%;
     gap: 4px;
   }
   @media screen and (min-width: $desktop) {
-    left: 15%;
+    left: 15.1%;
   }
-  
-  }
+    }
 
 .menu__link__home {
   display: flex;
@@ -94,6 +94,7 @@ $desktop: 1280px;
     line-height: 1.17;
     color: #000000;
     text-transform: uppercase;
+    
 
     @media screen and (min-width: $tablet) {
       width: 83px;
@@ -204,7 +205,7 @@ $desktop: 1280px;
 
   @media screen and (min-width: $desktop) {
     justify-content: flex-start;
-    margin-top: 151px;
+    margin-top: 171px;
     width: 190px;
     height: 38px;
 }
@@ -224,11 +225,11 @@ $desktop: 1280px;
 
   @media screen and (min-width: $desktop) {
     //width: 375px;
-    height: 75px;
+    //height: 75px;
 }
 }
 
-.logo__header {
+.filmoteka {
   
   font-family: 'Roboto';
   font-style: normal;
