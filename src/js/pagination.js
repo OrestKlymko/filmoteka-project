@@ -1,17 +1,16 @@
 'use strict';
 
 import { getPopularMovies } from './get-popular-movies';
-
 import Pagination from 'tui-pagination';
 
 const refs = {
   pageButton: document.querySelector('.tui-pagination'),
 };
 
-const getPopularMoviesAPI = new getPopularMovies();
-let pageCount = 1;
+refs.paginationEl.addEventListener('click', pageButtonNext);
 
-refs.pageButton.addEventListener('click', onNextPage);
+const getPopularMoviesAPI = new getPopularMovies();
+let currentPage = 1;
 
 function pagination(el) {
   const container = document.getElementById('tui-pagination-container');
@@ -48,19 +47,13 @@ function pagination(el) {
 getPopularMoviesAPI
   .fetchPopularMovies()
   .then(data => {
-    // markuplist(data);
+    markuplist(data);
     // refs.listEl.innerHTML = filmList;
-    pagination(data);
+    paginationFunction(data);
   })
   .catch(error => {
     console.log(error);
   });
-
-function onNextPage(event) {
-  pageCount = Number(event.target.textContent);
-  pageButtonNumber();
-  // pageButtonNext();
-}
 
 function pagination(el) {
   const container = document.getElementById('tui-pagination-container');
@@ -91,15 +84,24 @@ function pagination(el) {
     },
   };
   const pagination = new Pagination(container, options);
+
+  pagination.on('afterMove', function (eventData) {
+    currentPage = eventData.page;
+    console.log(currentPage);
+  });
 }
 
-function pageButtonNumber() {
-  getPopularMoviesAPI.page = pageCount;
+function pageButtonNext() {
+  getPopularMoviesAPI.page = currentPage;
+  console.log(getPopularMoviesAPI.page);
+  // pagination.getCurrentPage();
 
-  if (Number.isInteger(getPopularMoviesAPI.page)) {
-    getPopularMoviesAPI.fetchPopularMovies().then(el => {
-      // markuplist(el);
-      // refs.listEl.innerHTML = filmList;
-    });
-  }
+  getPopularMoviesAPI.fetchPopularMovies().then(el => {
+    console.log(el);
+    markuplist(el);
+
+    refs.listEl.innerHTML = filmList;
+
+    // return getPopularMoviesAPI.page;
+  });
 }
