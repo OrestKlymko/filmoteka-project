@@ -1,6 +1,7 @@
 'use strict';
 
 import { getPopularMovies } from './get-popular-movies';
+
 import Pagination from 'tui-pagination';
 
 const refs = {
