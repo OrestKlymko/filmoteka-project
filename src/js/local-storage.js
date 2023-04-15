@@ -9,8 +9,11 @@ export let queuedMovies =
 const addToWatchedBtn = document.querySelector('.watchedBtn');
 const addToQueueBtn = document.querySelector('.queueBtn');
 
-addToWatchedBtn.addEventListener('click', async e => {
-  const movieId = 594767; // e.target.getAttribute('data-id');
+addToWatchedBtn.addEventListener('click', handleWatchBtnClick);
+addToQueueBtn.addEventListener('click', handleQueueBtnClick);
+
+async function handleWatchBtnClick(e) {
+  const movieId = e.target.getAttribute('data-movie-id');
   const movieObj = await getMovieById(movieId);
 
   //   Перевірка на наявність фільму в масиві
@@ -25,10 +28,10 @@ addToWatchedBtn.addEventListener('click', async e => {
 
   watchedMovies.push(movieObj); // Якщо немає, додаємо фільм в масив
   return localStorage.setItem('watchedMovies', JSON.stringify(watchedMovies));
-});
+}
 
-addToQueueBtn.addEventListener('click', async e => {
-  const movieId = 594767; // e.target.getAttribute('data-id');
+async function handleQueueBtnClick(e) {
+  const movieId = e.target.getAttribute('data-movie-id');
   const movieObj = await getMovieById(movieId);
 
   //   Перевірка на наявність фільму в масиві
@@ -40,4 +43,4 @@ addToQueueBtn.addEventListener('click', async e => {
 
   queuedMovies.push(movieObj); // Якщо немає, додаємо фільм в масив
   return localStorage.setItem('queuedMovies', JSON.stringify(queuedMovies));
-});
+}
