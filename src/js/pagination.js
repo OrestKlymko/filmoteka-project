@@ -1,5 +1,5 @@
 export class Pagination {
-  import  getPopularMovies  from './get-popular-movies';
+  import  {getPopularMovies} from './get-popular-movies';
 import Pagination from 'tui-pagination';
 
 const paginationEl = document.querySelector('.tui-pagination');
@@ -21,7 +21,7 @@ getPopularMoviesAPI
     console.log(error);
   });
 
-function paginationFunction(el) {
+paginationFunction(el) {
   const container = refs.paginationEl;
   const options = {
     totalItems: 10000,
@@ -54,11 +54,10 @@ function paginationFunction(el) {
 
   pagination.on('afterMove', function (eventData) {
     currentPage = eventData.page;
-    console.log(currentPage);
   });
 }
 
-function pageButtonNext() {
+pageButtonNext() {
   getPopularMoviesAPI.page = currentPage;
 
   getPopularMoviesAPI.fetchPopularMovies().then(el => {
