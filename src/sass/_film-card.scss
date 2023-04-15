@@ -1,0 +1,102 @@
+
+.card__item {
+    margin-bottom: 20px;
+    width: 280px;
+    @media screen and (min-width: 768px) {
+        margin-bottom: 0px;
+        flex-basis: calc((100% - 64px) / 2);
+        height: 504px;
+    }
+    
+    @media screen and (min-width: 1280px) {
+        height: 646px;
+        margin-bottom: 16px;
+        flex-basis: calc((100% - 48px) / 3);
+    }
+}
+
+.card__img {
+    width: 280px;
+    height: 398px;
+    border-radius: 5px;
+    transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+
+    @media screen and (min-width: 768px) {
+        width: 336px;
+        height: 455px;
+        margin-bottom: 8px;
+    }
+
+    @media screen and (min-width: 1280px) {
+        width: 393px;
+        height: 574px;
+        margin-bottom: 12px;
+    }
+
+    &:hover {
+        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5),
+        -23px 0 20px -23px rgba(0, 0, 0, 0.5),
+        23px 0 20px -23px rgba(0, 0, 0, 0.5), 0 0 40px rgba(0, 0, 0, 0.1);
+        transform: scale(1.02);
+    }
+}
+
+.card__text-wrap {
+    font-family: 'Roboto';
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1.16;
+    margin-top: 10px;
+
+    @media screen and (min-width: 768px) {
+        line-height: 1.33;
+    }
+
+    @media screen and (min-width: 1280px) {
+        font-size: 20px;
+        line-height: 1.2;
+    }
+}
+
+.card__name {
+    margin-top: 8px;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1.33;
+    text-transform: uppercase;
+    color: var(--headline-bcg-color);
+
+    @media screen and (min-width: 1280px) {
+        font-style: normal;
+        font-weight: 500;
+        font-size: 20px;
+        line-height: 1.2;
+    }
+}
+
+
+.card__info {
+    display: flex;
+    margin-top: 2px;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1.33;
+    color: var(--description-color);
+    
+    @media screen and (min-width: 1280px) {
+        font-style: normal;
+        font-weight: 500;
+        font-size: 20px;
+        line-height: 1.2;
+    }
+}
+
+.card__genres {
+    padding-right: 5px;
+    margin-right: 5px;
+    border-right: 1px solid var(--description-color);
+    color: var(--description-color);
+    
+}
