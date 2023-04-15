@@ -1,13 +1,10 @@
-'use strict';
-
-import { getPopularMovies } from './get-popular-movies';
+export class Pagination {
+  import  getPopularMovies  from './get-popular-movies';
 import Pagination from 'tui-pagination';
 
-const refs = {
-  pageButton: document.querySelector('.tui-pagination'),
-};
+const paginationEl = document.querySelector('.tui-pagination');
 
-refs.paginationEl.addEventListener('click', pageButtonNext);
+paginationEl.addEventListener('click', pageButtonNext);
 
 const getPopularMoviesAPI = new getPopularMovies();
 let currentPage = 1;
@@ -15,8 +12,9 @@ let currentPage = 1;
 getPopularMoviesAPI
   .fetchPopularMovies()
   .then(data => {
-    markuplist(data);
-    // refs.listEl.innerHTML = filmList;
+    if (data.results.length === 0 || !data) {
+      return;
+    }
     paginationFunction(data);
   })
   .catch(error => {
@@ -24,9 +22,9 @@ getPopularMoviesAPI
   });
 
 function paginationFunction(el) {
-  const container = document.getElementById('tui-pagination-container');
+  const container = refs.paginationEl;
   const options = {
-    totalItems: `${el.total_results}`,
+    totalItems: 10000,
     itemsPerPage: `${el.results.length}`,
     visiblePages: 5,
     page: 1,
@@ -51,6 +49,7 @@ function paginationFunction(el) {
         '</a>',
     },
   };
+
   const pagination = new Pagination(container, options);
 
   pagination.on('afterMove', function (eventData) {
@@ -61,15 +60,11 @@ function paginationFunction(el) {
 
 function pageButtonNext() {
   getPopularMoviesAPI.page = currentPage;
-  console.log(getPopularMoviesAPI.page);
-  // pagination.getCurrentPage();
 
   getPopularMoviesAPI.fetchPopularMovies().then(el => {
-    console.log(el);
-    markuplist(el);
-
-    refs.listEl.innerHTML = filmList;
-
-    // return getPopularMoviesAPI.page;
+    el.page = currentPage;
   });
 }
+}
+
+
