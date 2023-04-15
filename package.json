@@ -17,7 +17,6 @@
   "bugs": {
     "url": "https://github.com/OrestKlymko/filmoteka-project/issues"
   },
-
   "dependencies": {
     "modern-normalize": "^1.1.0",
     "notiflix": "^3.2.6",
