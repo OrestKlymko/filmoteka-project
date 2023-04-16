@@ -4,9 +4,7 @@ $desktop: 1280px;
 
 .header__container {
   position: absolute;
-}
 
-.header {
   max-width: $mobile;
   height: 460px;
   margin-left: auto;
@@ -68,11 +66,11 @@ $desktop: 1280px;
   z-index: 1;
 
   @media screen and (min-width: $tablet) {
-    left: 44%;
+    left: 46%;
     gap: 4px;
   }
   @media screen and (min-width: $desktop) {
-    left: 17.1%;
+    left: 17.3%;
   }
     }
 
@@ -146,13 +144,18 @@ $desktop: 1280px;
 
     .header__form {
       position: relative;
-      top: 10%;
+      top: 2%;
       //margin-top: 8px;
-      margin-left: 14px;
+      //margin-left: 8px;
 
       @media screen and (min-width: $tablet) {
-        top: 0;
+        top: -20%;
       }
+      @media screen and (min-width: $desktop) {
+        top: -13%;
+      }
+
+
     }
 
     .search__form {
@@ -196,13 +199,15 @@ $desktop: 1280px;
     }
     
     .search__form button {
-      display: flex;
-      justify-content: center;
-      align-items: center;
       width: 20%;
       border: none;
       outline: none;
-      padding: 7px 7px;
+
+      &:hover,
+    &:focus {
+    transform: scale(1.2);
+  }
+      
     }
 
 .search__text {
@@ -230,7 +235,7 @@ color: #FFFFFF;
   align-items: center;
   margin-right: auto;
   margin-left: auto;
-  margin-top: 312px;
+  margin-top: 280px;
   width: 190px;
   height: 38px;
   
@@ -238,14 +243,14 @@ color: #FFFFFF;
   @media screen and (min-width: $tablet) {
     justify-content: flex-start;
     margin-left: 16px;
-    margin-top: 105px;
+    margin-top: 50px;
     width: 233px;
     height: 47px;
   }
 
   @media screen and (min-width: $desktop) {
     justify-content: flex-start;
-    margin-top: 171px;
+    margin-top: 135px;
     width: 190px;
     height: 38px;
 }

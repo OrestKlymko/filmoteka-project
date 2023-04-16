@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>My library</title>
     <link rel="stylesheet" href="./sass/index.scss" />
+    <link rel="stylesheet" href="./sass/library.scss"/>
         
     <script type="module" src="./index.js"></script>
   </head>
@@ -12,8 +13,7 @@
 
 <header class="header">
     <div class="container library__container">
-      <nav class="navigation__block">
-  
+        
            <ul class="menu__library">
            <li class="menu__item">
            <a class="menu__link__home" href=""> home </a>
@@ -22,8 +22,7 @@
           <a class="menu__link__library current" href=""> my library </a>
         </li>
       </ul>
-    </nav>
-    
+       
     <div class="header__logo">
     <a class="logo__header" href="">
       <svg class="icon__film" width="33" height="33">
@@ -33,7 +32,8 @@
     </a>
     </div>
 
-    <ul class="library">
+<div class="library-box">
+    <ul class="library__range">
       <li class="library__item">
       <a class="library__link__watched" href="">watched</a>
    </li>
@@ -41,6 +41,7 @@
      <a class="library__link__queue" href="">queue</a>
    </li>
  </ul>
+</div>
 
     </div>
   </header>
