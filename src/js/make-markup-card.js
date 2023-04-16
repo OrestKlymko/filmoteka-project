@@ -11,7 +11,7 @@ export function makeMarkupCard(movies) {
             const slicedGenres = slicedGenres(genres);
             let posterLink = `${urls.imageUrl}${poster_path}`;
             if (poster_path === null) {
-            posterLink = `$https://i.postimg.cc/zG4yJ7P4/no-Image-Available.jpg`;
+            posterLink = `$#`;
         }
         return `<li class="card__item" data-id=${id}>
                     <div class="card__img-wrap">
