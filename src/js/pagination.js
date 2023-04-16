@@ -1,6 +1,8 @@
-export class Pagination {
-  import  {getPopularMovies} from './get-popular-movies';
+import  {getPopularMovies} from './get-popular-movies';
 import Pagination from 'tui-pagination';
+
+export class Pagination {
+
 
 const paginationEl = document.querySelector('.tui-pagination');
 
