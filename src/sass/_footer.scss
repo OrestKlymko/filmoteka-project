@@ -36,7 +36,7 @@
 
 .footer-rights__text,
 .footer-rights__pipe,
-.footer-rights__comlink {
+.team__modal {
     color: var(--headline-bcg-color);
     font-size: 14px;
     font-weight: 400;
@@ -48,7 +48,7 @@
 @media screen and (min-width: 768px) {
     .footer-rights__text,
     .footer-rights__pipe,
-    .footer-rights__comlink {
+    .team__modal {
         font-size: 16px;
     }
 }
@@ -81,7 +81,7 @@
     }
 }
 
-.footer-rights__comlink {
+.team__modal {
     border-bottom: 1px solid var(--headline-bcg-color);
     cursor: pointer;
    
