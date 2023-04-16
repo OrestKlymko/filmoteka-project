@@ -1,5 +1,4 @@
-
-.card__item {
+.card__img-wrap {
     margin-bottom: 20px;
     width: 280px;
     @media screen and (min-width: 768px) {
@@ -12,6 +11,13 @@
         height: 646px;
         margin-bottom: 16px;
         flex-basis: calc((100% - 48px) / 3);
+    }
+
+    &:hover {
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5),
+    -23px 0 20px -23px rgba(0, 0, 0, 0.5),
+    23px 0 20px -23px rgba(0, 0, 0, 0.5), 0 0 40px rgba(0, 0, 0, 0.1);
+    transform: scale(1.02);
     }
 }
 
@@ -33,12 +39,7 @@
         margin-bottom: 12px;
     }
 
-    &:hover {
-        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5),
-        -23px 0 20px -23px rgba(0, 0, 0, 0.5),
-        23px 0 20px -23px rgba(0, 0, 0, 0.5), 0 0 40px rgba(0, 0, 0, 0.1);
-        transform: scale(1.02);
-    }
+
 }
 
 .card__text-wrap {
