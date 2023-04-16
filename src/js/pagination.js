@@ -23,7 +23,7 @@ export class CustomPagination {
     const container = document.querySelector('.tui-pagination'); // 
     const options = {
       totalItems: 10000,
-      itemsPerPage: ${el.results.length},
+      itemsPerPage: `${el.results.length}`,
       visiblePages: 5,
       page: currentPage,
       centerAlign: false,
