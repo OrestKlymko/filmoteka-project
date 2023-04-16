@@ -10,8 +10,6 @@ export async function getTrailer(id) {
     if (trailer) {
       const videoSrc = `https://www.youtube.com/embed/${trailer.key}`;
       return videoSrc;
-    } else {
-      throw new Error('Trailer not found');
     }
   } catch (error) {
     console.error(`Error fetching trailer: ${error}`);
