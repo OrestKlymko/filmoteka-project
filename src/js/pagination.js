@@ -1,5 +1,5 @@
 import  {getPopularMovies} from './get-popular-movies';
-import Pagination from 'tui-pagination';
+import * as Pagination from 'tui-pagination';
 
 export class Pagination {
 
