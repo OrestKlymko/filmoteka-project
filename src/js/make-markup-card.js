@@ -11,7 +11,7 @@ export function makeMarkupCard(movies) {
             const slicedGenres = slicedGenres(genres);
             let posterLink = `${urls.imageUrl}${poster_path}`;
             if (poster_path === null) {
-            posterLink = `$#`;
+            posterLink = `$ якйись імедж`;
         }
         return `<li class="card__item" data-id=${id}>
                     <div class="card__img-wrap">
@@ -28,7 +28,6 @@ export function makeMarkupCard(movies) {
     })
     .join('');
 }
-
 
 export function sliceGenres(genres) { 
     
