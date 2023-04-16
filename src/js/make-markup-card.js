@@ -29,6 +29,7 @@ export function makeMarkupCard(movies) {
     .join('');
 }
 
+
 export function sliceGenres(genres) { 
     
     if (genres.length < 4) {
