@@ -2,6 +2,7 @@
   "name": "parcel-project-template",
   "version": "2.0.0",
   "description": "",
+
   "homepage": "https://OrestKlymko.github.io/filmoteka-project",
   "scripts": {
     "start": "parcel src/*.html",
