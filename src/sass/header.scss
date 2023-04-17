@@ -3,10 +3,10 @@ $tablet: 768px;
 $desktop: 1280px;
 
 .header__container {
-  position: absolute;
+//position: relative;
 
   max-width: $mobile;
-  height: 460px;
+  height: auto;
   margin-left: auto;
   margin-right: auto;
   padding: 14px;
@@ -28,7 +28,7 @@ $desktop: 1280px;
         //@include tablet 
         @media screen and (min-width: $tablet) {
           max-width: $tablet;
-          height: 222px;
+          height: auto;
         background-image: linear-gradient(273.67deg, rgba(0, 0, 0, 0.49) -2.09%, rgba(0, 0, 0, 0) 99.83%),
         url(../images/image-tablet-1x.jpg);
         @media (min-device-pixel-ratio: 2),
@@ -44,7 +44,7 @@ $desktop: 1280px;
         //@include desktop 
         @media screen and (min-width: $desktop) {
           max-width: $desktop;
-          height: 316px;
+          height: auto;
         background-image:linear-gradient(273.67deg, rgba(0, 0, 0, 0.49) -2.09%, rgba(0, 0, 0, 0) 99.83%), 
         url(../images/image-desktop-1x.jpg);
         @media (min-device-pixel-ratio: 2),
@@ -145,17 +145,17 @@ $desktop: 1280px;
     }
 
     .header__form {
-      position: relative;
-      top: 2%;
-      //margin-top: 8px;
+      position: absolute;
+      //top: 2%;
+      display: block;
+      margin-top: 8px;
       //margin-left: 8px;
 
       @media screen and (min-width: $tablet) {
-        top: -20%;
+        //position: relative;
+        top: 0.8%;
       }
-      @media screen and (min-width: $desktop) {
-        top: -13.1%;
-      }
+      
 
 
     }
