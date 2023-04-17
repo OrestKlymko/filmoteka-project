@@ -1,13 +1,11 @@
 import * as basicLightbox from 'basiclightbox';
 import { getTrailer } from './get-trailer';
 
-
-const id = 1841;
 const modal = document.querySelector('.modal');
 let instance;
 
-export default async function onTrailerButtonClick() {
-  const trailerId = id;
+export default async function onTrailerButtonClick(e) {
+  const trailerId = e.target.getAttribute('data-trailer-url');
   modal.classList.remove('modal--visible');
   try {
     const videoSrc = await getTrailer(trailerId);

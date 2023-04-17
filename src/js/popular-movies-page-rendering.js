@@ -1,7 +1,7 @@
-import { createMarkUp } from './search-movie-page-rendering'
+import { createMarkUp } from './make-markup-card'
 import {getPopularMovies} from './get-popular-movies'
 
-const movieWrapperEl = document.querySelector('.js-movies-wrapper') 
+const movieWrapperEl = document.getElementById('uk') 
 
 const getPopularMoviesIns = new getPopularMovies()
 
