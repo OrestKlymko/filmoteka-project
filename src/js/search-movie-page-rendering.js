@@ -73,22 +73,22 @@ let genresNames = ''
                 genresNames = genresArray.join(', ')
             }
             
-        return `<ul>
-    <li class="card__item">
-        <div class="card__img-wrap">
+        return `<div>
+    <ul class="card__item">
+        <li class="card__img-wrap">
             <img src="https://image.tmdb.org/t/p/w500/${movie.poster_path}" alt="poster of the movie ${movie.original_title}"
                 class="card__img"
             />
-        </div>
-        <div class="card__text-wrap">
+        </li>
+        <li class="card__text-wrap">
             <h2 class="card__name">${movie.original_title}</h2>
             <div class="card__info">
                 <p class="card__genres">${genresNames}</span></p>
                 <p class="card__year">${year}</p>
             </div>
-        </div>
-    </li>
-</ul>
+        </li>
+    </ul>
+</div>
 `
    })
         .join('');

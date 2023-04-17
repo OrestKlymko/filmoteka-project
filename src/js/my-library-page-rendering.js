@@ -5,9 +5,13 @@ import {arrayLengthCheck} from './search-movie-page-rendering'
 console.log( watchedMovies)
 const movieWrapperEl = document.querySelector('.js-movies-wrapper') 
 const myLibraryBtnEl = document.querySelector('.menu__link__library')
+const watchedBtnEl = document.querySelector('.library__link__watched')
+const queredBtnEl = document.querySelector('.library__link__queue')
 
-// myLibraryBtnEl.addEventListener('click', handleWatchedMoviesClick)
-// додати eventListiner до кнопок watched i quered
+myLibraryBtnEl.addEventListener('click', handleWatchedMoviesClick)
+watchedBtnEl.addEventListener('click', handleWatchedMoviesClick)
+queredBtnEl.addEventListener('click', handleQueuedMoviesClick)
+
 
 function handleWatchedMoviesClick () {
 
