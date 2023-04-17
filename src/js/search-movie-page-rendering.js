@@ -1,4 +1,4 @@
-// import { fetchMoviesByName } from './get-movie-by-name'
+import { fetchMoviesByName } from './get-movie-by-name'
 import Notiflix from 'notiflix';
 import { genres } from './genres-array'
 
@@ -102,4 +102,4 @@ export function arrayLengthCheck(array) {
     return array.slice(0,2) 
     };
 
-// searchMoviesFormEl.addEventListener('submit', handleSearchMoviesForm)
+searchMoviesFormEl.addEventListener('submit', handleSearchMoviesForm)
