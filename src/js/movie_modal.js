@@ -11,6 +11,9 @@ const genre = document.querySelector('.js-movie-genre');
 const overview = document.querySelector('.js-movie-excerpt');
 
 const closeButton = document.querySelector('.modal__btn--close');
+const trailerBtn = document.querySelector('.trailerBtn');
+const watchedBtn = document.querySelector('.watchedBtn');
+const queueBtn = document.querySelector('.queueBtn');
 
 closeButton.addEventListener('click', closeModal);
 modal.addEventListener('click', handleBackdropClick);
@@ -22,7 +25,7 @@ movieList.addEventListener('click', event => {
   if (!movieCard) return;
 
   const movieId = movieCard.dataset.id;
-  // const movieId = '299536';  
+  // const movieId = '299536';
   getMovieById(movieId)
     .then(data => {
       poster.src = `https://image.tmdb.org/t/p/w500${data.poster_path}`;
@@ -37,6 +40,11 @@ movieList.addEventListener('click', event => {
     .catch(error => {
       console.error(error);
     });
+
+  trailerBtn.setAttribute('data-movie-id', movieId);
+  watchedBtn.setAttribute('data-movie-id', movieId);
+  queueBtn.setAttribute('data-movie-id', movieId);
+
   modal.classList.add('modal--visible');
 });
 
