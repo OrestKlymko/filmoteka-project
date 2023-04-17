@@ -6,7 +6,7 @@ console.log( watchedMovies)
 const movieWrapperEl = document.querySelector('.js-movies-wrapper') 
 const myLibraryBtnEl = document.querySelector('.menu__link__library')
 
-// myLibraryBtnEl.addEventListener('click', handleWatchedMoviesClick)
+myLibraryBtnEl.addEventListener('click', handleWatchedMoviesClick)
 // додати eventListiner до кнопок watched i quered
 
 function handleWatchedMoviesClick () {
@@ -45,8 +45,8 @@ function handleQueuedMoviesClick () {
 
 
 function clearPage() {
-//   return  markUp = `<p>Sorry, there is no any movie in your library yet</p>
-// <svg class="icon icon-images"><use xlink:href="#icon-images"></use></svg> `
+  return  markUp = `<p>Sorry, there is no any movie in your library yet</p>
+<svg class="icon icon-images"><use xlink:href="#icon-images"></use></svg> `
   return  Notiflix.Notify.failure('Sorry, there is no any movie in your library yet.')
 }
 
