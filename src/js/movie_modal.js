@@ -18,10 +18,10 @@ const queueBtn = document.querySelector('.queueBtn');
 closeButton.addEventListener('click', closeModal);
 modal.addEventListener('click', handleBackdropClick);
 
-const movieList = document.querySelector('ul');
+const movieList = document.querySelector('.js-movies-wrapper');
 
 movieList.addEventListener('click', event => {
-  const movieCard = event.target.closest('.card__item');
+  const movieCard = event.target.closest('.carditem');
   if (!movieCard) return;
 
   const movieId = movieCard.dataset.id;
