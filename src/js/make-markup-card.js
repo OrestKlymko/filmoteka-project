@@ -1,3 +1,4 @@
+
 // function sliceCategories(categories) { 
 //     if (categories.length < 4) {
 
@@ -104,13 +105,13 @@ export function createMarkUp(results) {
             // console.log(genresArray)
 let genresNames = ''
             if (genresArray.length > 2 ) {
-                 genresNames = arrayLengthCheck(genresArray).join(', ') + ", other"
+                genresNames = arrayLengthCheck(genresArray).join(', ') + ", other"
             } else {
                 genresNames = genresArray.join(', ')
             }
 
         return `<div class="js-movies-wrapper">
-    <ul class="carditem"> 
+    <ul class="carditem">
         <li class="cardimg-wrap">
             <img src="https://image.tmdb.org/t/p/w500/${movie.poster_path}" alt="poster of the movie ${movie.original_title}"
                 class="cardimg"
