@@ -1,4 +1,4 @@
-import { fetchMoviesByName } from './get-movie-by-name'
+// import { fetchMoviesByName } from './get-movie-by-name'
 import Notiflix from 'notiflix';
 import { genres } from './genres-array'
 
