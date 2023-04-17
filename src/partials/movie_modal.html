@@ -1,62 +1,58 @@
-<!-- <script id="movie-template" type="text/x-handlebars-template">
-  <div class='modal modal--visible'>
-    <div class='modal__box'>
-      <button type='button' class='modal__btn--close'></button>
-      <div class='shortstory'>
-        <div class='shortstory__body'>
-          <div class='shortstory__poster'>
-            <img src='{{posterUrl}}' class='shortstory__img' />
-            <button
-              type='button'
-              class='shortstory__button--play trailerBtn'
-              data-trailer-url=''
-            ></button>
+<div class="modal modal--visible">
+  <div class="modal__box">
+    <button type="button" class="modal__btn--close"></button>
+    <div class="shortstory">
+      <div class="shortstory__body">
+        <div class="shortstory__poster">
+          <img class="shortstory__img js-movie-poster" />
+          <button
+            type="button"
+            class="shortstory__button--play trailerBtn"
+            data-trailer-url=""
+          ></button>
+        </div>
+        <div class="shortstory__info">
+          <h1 class="shortstory__title js-movie-title"></h1>
+          <div class="shortstory__info--wrapper">
+            <ul class="shortstory__info--text-color">
+              <li class="shortstory__item">Vote / Votes</li>
+              <li class="shortstory__item">Popularity</li>
+              <li class="shortstory__item">Original Title</li>
+              <li class="shortstory__item">Genre</li>
+            </ul>
+            <ul>
+              <li class="shortstory__item--active js-movie-vote"></li>
+              <span>/</span
+              ><span class="shortstory__item--disabled js-movie-votes"></span>
+              <li class="shortstory__item js-movie-popularity"></li>
+              <li class="shortstory__item js-movie-original-title"></li>
+              <li class="shortstory__item js-movie-genre"></li>
+            </ul>
           </div>
-          <div class='shortstory__info'>
-            <h1 class='shortstory__title'>{{title}}</h1>
-            <div class='shortstory__info--wrapper'>
-              <ul class='shortstory__info--text-color'>
-                <li class='shortstory__item'>Vote / Votes</li>
-                <li class='shortstory__item'>Popularity</li>
-                <li class='shortstory__item'>Original Title</li>
-                <li class='shortstory__item'>Genre</li>
-              </ul>
-              <ul>
-                <li class='shortstory__item--active'>{{voteAverage}}</li>
-                <span>/</span><span
-                  class='shortstory__item--disabled'
-                >{{voteCount}}</span>
-                <li class='shortstory__item'>{{popularity}}</li>
-                <li class='shortstory__item'>{{originalTitle}}</li>
-                <li class='shortstory__item'>{{genre}}</li>
-              </ul>
-            </div>
-            <div class='excerpt'>
-              <h2 class='excerpt__title'>About</h2>
-              <p class='excerpt__text'>{{overview}}</p>
-            </div>
-            <div class='shortstory__btn'>
-              <button
-                type='button'
-                class='btn watchedBtn'
-                data-action=''
-                data-movie-id=''
-              >
-                add to Watched
-              </button>
-              <button
-                type='button'
-                class='btn queueBtn'
-                data-action=''
-                data-movie-id=''
-              >
-                add to queue
-              </button>
-            </div>
+          <div class="excerpt">
+            <h2 class="excerpt__title">About</h2>
+            <p class="excerpt__text js-movie-excerpt"></p>
+          </div>
+          <div class="shortstory__btn">
+            <button
+              type="button"
+              class="btn watchedBtn"
+              data-action=""
+              data-movie-id=""
+            >
+              add to Watched
+            </button>
+            <button
+              type="button"
+              class="btn queueBtn"
+              data-action=""
+              data-movie-id=""
+            >
+              add to queue
+            </button>
           </div>
         </div>
       </div>
     </div>
   </div>
-</script>
- -->
+</div>
