@@ -102,6 +102,7 @@ $desktop: 1280px;
   &:hover,
   &:focus {
     transform: scale(1.05);
+    transition: 0.3s;
   }
 }
 
@@ -133,6 +134,7 @@ $desktop: 1280px;
     &:hover,
     &:focus {
     transform: scale(1.05);
+    transition: 0.3s;
   }
     }
 
@@ -141,7 +143,7 @@ $desktop: 1280px;
       color: #FFFFFF;
     }
 
-.header__logo {
+.header__logo__library {
   display: flex;
   align-items: center;
   margin-right: auto;
@@ -172,14 +174,6 @@ $desktop: 1280px;
   display: flex;
   justify-content: center;
   align-items: center;
-
-  @media screen and (min-width: $tablet) {
-   
-  }
-
-  @media screen and (min-width: $desktop) {
-     height: 75px;
-}
 }
 
 .filmoteka {
@@ -203,7 +197,17 @@ $desktop: 1280px;
 }
 
 .library-box {
-position: relative;
+  
+  @media screen and (min-width: $tablet) {
+    position: absolute;
+    left: 70%;
+    top: -1%;
+  }
+
+  @media screen and (min-width: $desktop) {
+    left: 77%;
+    top: -1%;
+  }
 }
 
 .library__range {
@@ -252,6 +256,7 @@ position: relative;
     &:hover,
     &:focus {
     transform: scale(1.05);
+    transition: 0.3s;
   }
 }
 
@@ -289,5 +294,6 @@ position: relative;
       &:hover,
       &:focus {
       transform: scale(1.05);
+      transition: 0.3s;
     }
   }
