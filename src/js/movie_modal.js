@@ -11,15 +11,18 @@ const genre = document.querySelector('.js-movie-genre');
 const overview = document.querySelector('.js-movie-excerpt');
 
 const closeButton = document.querySelector('.modal__btn--close');
-closeButton.addEventListener('click', closeModal);
 
-const movieList = document.querySelector('.js-movie-list');
+closeButton.addEventListener('click', closeModal);
+modal.addEventListener('click', handleBackdropClick);
+
+const movieList = document.querySelector('ul');
 
 movieList.addEventListener('click', event => {
   const movieCard = event.target.closest('.card__item');
   if (!movieCard) return;
 
   const movieId = movieCard.dataset.id;
+  // const movieId = '299536';  
   getMovieById(movieId)
     .then(data => {
       poster.src = `https://image.tmdb.org/t/p/w500${data.poster_path}`;
@@ -37,18 +40,19 @@ movieList.addEventListener('click', event => {
   modal.classList.add('modal--visible');
 });
 
-document.addEventListener('keydown', e => {
+function handleBackdropClick(e) {
+  if (e.target === e.currentTarget) {
+    closeModal();
+  }
+}
+
+function closeModal() {
+  window.removeEventListener('keydown', handleEsc);
+  modal.classList.remove('modal--visible');
+}
+
+function handleEsc(e) {
   if (e.code === 'Escape') {
     closeModal();
   }
-});
-
-document.addEventListener('click', e => {
-  if (!modal.contains(e.target) && modal.classList.contains('modal--visible')) {
-    closeModal();
-  }
-});
-
-function closeModal() {
-  modal.classList.remove('modal--visible');
 }
