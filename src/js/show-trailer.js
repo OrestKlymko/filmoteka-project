@@ -1,6 +1,6 @@
 import * as basicLightbox from 'basiclightbox';
-import { getTrailer } from './js/get-trailer';
-import '../node_modules/basiclightbox/dist/basiclightbox.min.css';
+import { getTrailer } from './get-trailer';
+import '../../node_modules/basiclightbox/dist/basiclightbox.min.css';
 
 const id = 1841;
 const modal = document.querySelector('.modal');

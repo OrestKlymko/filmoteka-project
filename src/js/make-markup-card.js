@@ -49,11 +49,11 @@ const API_KEY = '?api_key=f7d7a9b2e374f67b5381a74b61fb7dc2';
 export default async function fetchMoviesByName(movieName) {
   try {
     const response = await fetch(
-      ${BASE_URL}/search/movie${API_KEY}&query=${movieName}&language=en-US
+      `${BASE_URL}/search/movie${API_KEY}&query=${movieName}&language=en-US`
     );
     const data = await response.json();
     if (data.results.length === 0) {
-      throw new Error(No movies found with name "${movieName}");
+      throw new Error(`No movies found with name "${movieName}"`);
     }
     return data;
   } catch (error) {
@@ -93,7 +93,7 @@ const handleSearchMoviesForm = async event => {
 export function createMarkUp(results) {
     const markUp = results.map(
         (movie) => {
-            const date = new Date(${movie.release_date});
+            const date = new Date(`${movie.release_date}`);
             const year = date.getFullYear()
 
             const genresArray = movie.genre_ids.map((id) => { 
@@ -110,7 +110,7 @@ let genresNames = ''
             }
 
         return `<div class="js-movies-wrapper">
-    <ul class="carditem">
+    <ul class="carditem"> 
         <li class="cardimg-wrap">
             <img src="https://image.tmdb.org/t/p/w500/${movie.poster_path}" alt="poster of the movie ${movie.original_title}"
                 class="cardimg"
