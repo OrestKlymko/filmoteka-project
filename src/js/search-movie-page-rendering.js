@@ -1,47 +1,36 @@
-// +// import { fetchMoviesByName } from './get-movie-by-name'
+// import { fetchMoviesByName } from './get-movie-by-name'
 import Notiflix from 'notiflix';
-import debounce from 'lodash.debounce';
+import { genres } from './genres-array'
 
-const DEBOUNCE_DELAY = 300;
-
-const searchMoviesFormEl = document.querySelector('.js-search-movies-form')
+const searchMoviesFormEl = document.querySelector('#search-form')
 const movieWrapperEl = document.querySelector('.js-movies-wrapper') 
+const searchInputEl = document.querySelector('.search-input');
 
+//видалити після імпорту
+const BASE_URL = 'https://api.themoviedb.org/3';
+const API_KEY = '?api_key=f7d7a9b2e374f67b5381a74b61fb7dc2';
 
-
-async function getGenresOfMovies() {
+export default async function fetchMoviesByName(movieName) {
   try {
     const response = await fetch(
-      `https://api.themoviedb.org/3/genre/movie/list?api_key=f7d7a9b2e374f67b5381a74b61fb7dc2&language=en-US`
-    );    
-    return await response.json();
-
+      `${BASE_URL}/search/movie${API_KEY}&query=${movieName}&language=en-US`
+    );
+    const data = await response.json();
+    if (data.results.length === 0) {
+      throw new Error(`No movies found with name "${movieName}"`);
+    }
+    return data;
   } catch (error) {
-
     console.log(error);
   }
 }
-
-const receiveGenresOfMovies = async() => {
-    try {
-        const genres = await getGenresOfMovies()
-        console.log(genres)
-// genres.filter((genre) => genre.id === genre_ids)
-    } catch (err) {
-        console.log(err)
-    }
-}
-
-//  console.log(genres)
-
-receiveGenresOfMovies()
 
 const handleSearchMoviesForm = async event => {
     event.preventDefault()
 
     movieWrapperEl.innerHTML = '';
 
-    const movieName = event.target.value.trim()
+    const movieName = searchInputEl.value.trim()
 
     if (movieName === '') {
     return;
@@ -49,7 +38,7 @@ const handleSearchMoviesForm = async event => {
 
     try {
         const {results} = await fetchMoviesByName(movieName)
-        console.log(results)
+        // console.log(results)
 
         createMarkUp(results)
 
@@ -71,25 +60,46 @@ export function createMarkUp(results) {
             const date = new Date(`${movie.release_date}`);
             const year = date.getFullYear()
 
-console.log(year);
-        return `
-<div>
-  <img src="https://image.tmdb.org/t/p/w500/${movie.poster_path}" alt='poster of the movie ${movie.original_title}' loading="lazy" />
-    <p > ${movie.original_title}
-    </p>
-    <p >${movie.genre_ids}
-    </p>
-    <p >${year}
-    </p>
-</div>`
+            const genresArray = movie.genre_ids.map((id) => { 
+                const genre = genres.find(genre => genre.id === id)
+                
+                  return genre ? genre.name : '';  
+            })
+            // console.log(genresArray)
+let genresNames = ''
+            if (genresArray.length > 2 ) {
+                 genresNames = arrayLengthCheck(genresArray).join(', ') + ", other"
+            } else {
+                genresNames = genresArray.join(', ')
+            }
+            
+        return `<ul>
+    <li class="card__item">
+        <div class="card__img-wrap">
+            <img src="https://image.tmdb.org/t/p/w500/${movie.poster_path}" alt="poster of the movie ${movie.original_title}"
+                class="card__img"
+            />
+        </div>
+        <div class="card__text-wrap">
+            <h2 class="card__name">${movie.original_title}</h2>
+            <div class="card__info">
+                <p class="card__genres">${genresNames}</span></p>
+                <p class="card__year">${year}</p>
+            </div>
+        </div>
+    </li>
+</ul>
+`
    })
-    .join('');
-
+        .join('');
+    
     movieWrapperEl.insertAdjacentHTML('beforeend', markUp);
   
     return markUp
 }
 
+export function arrayLengthCheck(array) {
+    return array.slice(0,2) 
+    };
 
-
-searchMoviesFormEl.addEventListener('submit', debounce(handleSearchMoviesForm, DEBOUNCE_DELAY))
+// searchMoviesFormEl.addEventListener('submit', handleSearchMoviesForm)
