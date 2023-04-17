@@ -12,6 +12,7 @@ function sliceCategories(categories) {
 
 export function makeMarkupCard(name, sliceCategories, year) {
     const card = `
+    <div class="card">  
       <div class="card__img-wrap">
         <img src="#" alt="" class="card__img" />
       </div>
@@ -22,6 +23,7 @@ export function makeMarkupCard(name, sliceCategories, year) {
           <p class="card__year">${year}</p>
         </div>
       </div>
+    </div>
     `;
     return card;
   }
