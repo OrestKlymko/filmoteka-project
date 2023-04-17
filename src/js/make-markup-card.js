@@ -9,10 +9,10 @@ function sliceCategories(categories) {
 };
 
 
-export function makeMarkupCard(name, sliceCategories, year) {
+export function makeMarkupCard(name, sliceCategories, year,imgUrl) {
     const card = `
       <div class="card__img-wrap">
-        <img src="#" alt="" class="card__img" />
+        <img src=${imgUrl} alt={name} class="card__img" />
       </div>
       <div class="card__text-wrap">
         <h2 class="card__name">${name}</h2>
