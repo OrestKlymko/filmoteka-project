@@ -110,7 +110,7 @@ let genresNames = ''
                 genresNames = genresArray.join(', ')
             }
 
-        return `<div class="js-movies-wrapper">
+        return `<div class="thumb">
     <ul class="carditem">
         <li class="cardimg-wrap">
             <img src="https://image.tmdb.org/t/p/w500/${movie.poster_path}" alt="poster of the movie ${movie.original_title}"

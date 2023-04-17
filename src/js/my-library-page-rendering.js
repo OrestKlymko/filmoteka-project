@@ -17,17 +17,15 @@ myLibraryBtnEl.addEventListener('click', handleWatchedMoviesClick)
 // додати eventListiner до кнопок watched i quered
 
 
-function handleWatchedMoviesClick () {
-
+function handleWatchedMoviesClick() {
     movieWrapperEl.innerHTML = '';
-
     try {
  if (watchedMovies.length === 0) {
         clearPage()
         return
     }
     
-    console.log(watchedMovies)
+    // console.log(watchedMovies)
    return  createLibMarkUp(watchedMovies)
     }
     catch(error) {
@@ -53,8 +51,9 @@ function handleQueuedMoviesClick () {
 
 
 function clearPage() {
-  return  markUp = `<p>Sorry, there is no any movie in your library yet</p>
-<svg class="icon icon-images"><use xlink:href="#icon-images"></use></svg> `
+//   return  markUp = `<p>Sorry, there is no any movie in your library yet</p>
+// <svg class="icon icon-images"><use xlink:href="#icon-images"></use></svg> `
+
   return  Notiflix.Notify.failure('Sorry, there is no any movie in your library yet.')
 }
 
