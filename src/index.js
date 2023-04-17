@@ -11,5 +11,5 @@ import './js/local-storage.js'
 import './js/my-library-page-rendering'
 import './js/get-trailer.js'
 import './js/show-trailer.js'
-import "./js/team"
+import "./js/team" 
 
