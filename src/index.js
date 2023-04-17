@@ -7,9 +7,9 @@ import './js/local-storage.js'
 // import './js/pagination.js'
 // import './js/spinner.js'
 // import './js/popular-movies-page-rendering.js'
-// import './js/search-movie-page-rendering'
+// import './js/make-markup-js'
 import './js/my-library-page-rendering'
-// import './js/getTrailer.js'
-// import './js/showTrailer.js'
-import "./js/team"
+import './js/get-trailer.js'
+import './js/show-trailer.js'
+import "./js/team" 
 

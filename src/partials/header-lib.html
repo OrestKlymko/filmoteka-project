@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My library</title>
+    <link rel="stylesheet" href="./sass/index.scss" />
+            
+    <script type="module" src="./index.js"></script>
+  </head>
+  <body>
+
+<header class="header">
+    <div class="container library__container">
+        
+           <ul class="menu__library">
+           <li class="menu__item">
+           <a class="menu__link__home" href="./index.html"> home </a>
+        </li>
+        <li class="menu__item">
+          <a class="menu__link__library current" href="./library.html"> my library </a>
+        </li>
+      </ul>
+       
+    <div class="header__logo__library">
+    <a class="logo__header" href="./index.html">
+      <svg class="icon__film" width="33" height="33">
+        <use href="./images/icons-header.svg#icon-film"></use>
+      </svg>
+      <span class="filmoteka"> Filmoteka </span>
+    </a>
+    </div>
+
+<div class="library-box">
+    <ul class="library__range">
+      <li class="library__item">
+      <a class="library__link__watched" href="">watched</a>
+   </li>
+   <li class="library__item">
+     <a class="library__link__queue" href="">queue</a>
+   </li>
+ </ul>
+</div>
+
+    </div>
+  </header>
+   
+  </body>
+</html>

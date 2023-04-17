@@ -13,6 +13,10 @@ watchedBtnEl.addEventListener('click', handleWatchedMoviesClick)
 queredBtnEl.addEventListener('click', handleQueuedMoviesClick)
 
 
+myLibraryBtnEl.addEventListener('click', handleWatchedMoviesClick)
+// додати eventListiner до кнопок watched i quered
+
+
 function handleWatchedMoviesClick () {
 
     movieWrapperEl.innerHTML = '';
@@ -49,8 +53,8 @@ function handleQueuedMoviesClick () {
 
 
 function clearPage() {
-//   return  markUp = `<p>Sorry, there is no any movie in your library yet</p>
-// <svg class="icon icon-images"><use xlink:href="#icon-images"></use></svg> `
+  return  markUp = `<p>Sorry, there is no any movie in your library yet</p>
+<svg class="icon icon-images"><use xlink:href="#icon-images"></use></svg> `
   return  Notiflix.Notify.failure('Sorry, there is no any movie in your library yet.')
 }
 

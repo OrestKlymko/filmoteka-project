@@ -1,83 +1,50 @@
-.team__title {
-        
-    height: 31px;
-text-align: center;
+.team__title { 
+    height:30px;
+    text-align: center;
     font-family: 'Roboto';
     font-style: normal;
     font-weight: 500;
-    font-size: 30px;
-    line-height: 35px;
-    
+    font-size: 40px;
+    line-height: 40px;
     color: #000000;
+    
 }
-.team__item {
-    /* position: relative; */
-/* width: 175px; */
-overflow: hidden;
-padding: 5px;
-margin-bottom: 5px; 
-left: 300px;
 
-    width: calc(20% - 10px);
-    /* height: calc(50% - 10px); */
+.team__item {
+    overflow: hidden;
+    padding: 5px;
+    margin-bottom: 5px; 
+    left: 300px;
+    width: calc(100% - 2px);
     margin: 5px;
     box-sizing: border-box;
     border-radius: 50px;
     box-shadow: 0px 1px 3px rgba(0,0,0,.14);
-  
-}
 
-
-.person__name {
-    font-weight: 700;
-    font-size: 16px;
-    line-height: 1.19;
-    text-align: center;
-    letter-spacing: .03em;
-    color: black;
-    margin-bottom: 10px;
-}
-.soc__link {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    border-radius: 24px;
-    align-items: center;
-    justify-content: center;
-    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.soc__link:hover, .soc__link:focus {
-    background-color: #B92F2C;
-}
-.person__text {
-    font-size: 16px;
-    line-height: 1.19;
-    text-align: center;
-    letter-spacing: .03em;
-    color: black;
+    @media screen and (min-width: 767px) {
+        width: calc(30% - 2px);
+    }
+    @media screen and (min-width: 1100px) {
+        width: calc(20% - 10px);
+    }
 }
 
 .team__item img {
-max-width: 100%;
-height: 200px;
-border-radius: 50px;
-object-fit: cover;
+    max-width: 100%;
+    height: 200px;
+    border-radius: 50px;
+    object-fit: cover;
 }
 
-/* .person {
-    padding-top: 30px;
-    padding-bottom: 30px;
-} */
 .team__item:nth-child(odd) {
     background-color: #c928258a;
 }
 .team__item:nth-child(even) {
-    background-color: #ffffff; }
-
+    background-color: #ffffff; 
+    top: -10px;
+}
 .team__list {
     display: flex;
-    /* gap: 10px; */
     flex-wrap: wrap;   
 }
 
@@ -88,6 +55,7 @@ object-fit: cover;
 }
 
 .backdrop {
+    z-index: 2;
     position: fixed;
     top: 0;
     width: 100%;
@@ -95,6 +63,7 @@ object-fit: cover;
     background-color: rgba(0,0,0,.2);
     transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
     visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    overflow: hidden;
 }
 
 .backdrop.is-hidden .modal {
@@ -117,12 +86,13 @@ object-fit: cover;
 
 .modal__container {
     display: flex;
-flex-wrap: wrap;
-/* height: 600px;
-width: 1100px; */
+    flex-wrap: wrap;
+    margin-top: 5px;
 }
-.modal {
 
+.modal__team {
+    overflow: scroll;
+    height: 500px;
     background:#FFFFFF;
     box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
         0px 2px 1px rgba(0, 0, 0, 0.2);
@@ -133,12 +103,159 @@ width: 1100px; */
     transform: translate(-50%, -50%) scale(1);
     transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
     padding: 20px;
-    height: 1100px;
-    width: 1100px;
+    width: 300px;
+
+    @media screen and (min-width: 768px) {
+        min-width: 750px;
+      }
+    
+      @media screen and (min-width: 1200px) {
+        width: 1100px;
+      }
+
 }
+
+.person__name {
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 1.19;
+    text-align: center;
+    letter-spacing: .03em;
+    color: black;
+    margin-bottom: 10px;
+}
+.soc__link {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    border-radius: 24px;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    &:hover, &:focus {
+    background-color: #B92F2C;
+    }
+}
+
+.person__text {
+    font-size: 16px;
+    line-height: 1.19;
+    text-align: center;
+    letter-spacing: .03em;
+    color: black;
+}
+
 .soc__list {
     display: flex;
     justify-content: center;
     gap: 10px;
     margin-top: 16px;
+}
+
+.img__goit {
+    position: static;
+    bottom: 0;
+    right: 100px;
+    display: none;
+
+    @media screen and (min-width: 768px) {
+    display: block;
+    width: 50px;
+  }
+
+    @media screen and (min-width: 1200px) {
+    width: 100px;
+    display: block;
+  }
+}
+
+.footer__form {
+    margin-left: auto;
+    position: relative;
+    display: flex;
+
+        @media screen and (min-width:1200px) {
+        display: block;
+        bottom: 150px;
+        // right: 200px;
+    }
+    @media screen and (max-width: 1100px) {
+        display: block;
+        width: 150px;
+        right: 60px;
+        bottom: 150px;
+      }
+
+      @media screen and (max-width: 360px) {
+        display: block;
+        width: 150px;
+        right: 60px;
+        bottom: 0px;
+      }
+}
+
+.footer__input-email {
+    padding: 16px;
+    background-color: transparent;
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.15));
+    border-radius: 4px;
+    transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    &:hover,
+    &:focus {
+        border-color: #B92F2C;
+        outline: none;
+    }
+
+    max-width: 450px;
+    width: 100%;
+    margin-bottom: 20px;
+
+    @media screen and (min-width:1200px) {
+        width: 358px;
+        margin-bottom: 0;
+    }
+}
+
+.footer__btn {
+    width: 200px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    margin-left: 12px;
+    padding: 10px 28px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    background-color: #B92F2C;
+    color: #ffffff;
+    border-radius: 4px;
+    border: 0;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+    &:hover,
+    &:focus {
+        background-color: #FFFFFF;
+        color: #000000;
+    }
+}
+
+.footer__icon-send {
+    margin-left: 10px;
+}
+
+.footer__input {
+    display: flex;
+    margin-top: 20px;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+     @media screen and (min-width: 1200px) {
+        align-items: unset;
+        justify-content: flex-start;
+        flex-direction: unset;
+    }
+
 }
