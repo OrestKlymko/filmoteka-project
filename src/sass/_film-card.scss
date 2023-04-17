@@ -1,12 +1,16 @@
-.card :hover {
+.cardimg-wrap :hover,
+.cardimg-wrap :focus,
+.cardtext-wrap :hover,
+.cardtext-wrap :focus {
         box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5),
         -23px 0 20px -23px rgba(0, 0, 0, 0.5),
         23px 0 20px -23px rgba(0, 0, 0, 0.5), 0 0 40px rgba(0, 0, 0, 0.1);
         transform: scale(1.02);
+        cursor: pointer;
 }
 
 
-card__img-wrap {
+.cardimg-wrap {
     margin-bottom: 20px;
     width: 280px;
     @media screen and (min-width: 768px) {
@@ -28,7 +32,7 @@ card__img-wrap {
     }
 }
 
-.card__img {
+.cardimg {
     width: 280px;
     height: 398px;
     border-radius: 5px;
@@ -54,7 +58,7 @@ card__img-wrap {
     }
 }
 
-.card__text-wrap {
+.cardtext-wrap {
     font-family: 'Roboto';
     font-weight: 500;
     font-size: 12px;
@@ -71,7 +75,7 @@ card__img-wrap {
     }
 }
 
-.card__name {
+.cardname {
     margin-top: 8px;
     font-style: normal;
     font-weight: 500;
@@ -89,7 +93,7 @@ card__img-wrap {
 }
 
 
-.card__info {
+.cardinfo {
     display: flex;
     margin-top: 2px;
     font-style: normal;
@@ -106,7 +110,7 @@ card__img-wrap {
     }
 }
 
-.card__genres {
+.cardgenres {
     padding-right: 5px;
     margin-right: 5px;
     border-right: 1px solid var(--description-color);
