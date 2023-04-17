@@ -1,6 +1,7 @@
 import * as basicLightbox from 'basiclightbox';
 import { getTrailer } from './get-trailer';
 
+
 const id = 1841;
 const modal = document.querySelector('.modal');
 let instance;
