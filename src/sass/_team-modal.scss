@@ -55,6 +55,7 @@
 }
 
 .backdrop {
+    z-index: 2;
     position: fixed;
     top: 0;
     width: 100%;
@@ -62,7 +63,7 @@
     background-color: rgba(0,0,0,.2);
     transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
     visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
-    overflow: auto;
+    overflow: hidden;
 }
 
 .backdrop.is-hidden .modal {
@@ -90,6 +91,8 @@
 }
 
 .modal__team {
+    overflow: scroll;
+    height: 500px;
     background:#FFFFFF;
     box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
         0px 2px 1px rgba(0, 0, 0, 0.2);
@@ -150,7 +153,7 @@
 }
 
 .img__goit {
-    position: absolute;
+    position: static;
     bottom: 0;
     right: 100px;
     display: none;
@@ -174,7 +177,7 @@
         @media screen and (min-width:1200px) {
         display: block;
         bottom: 150px;
-        right: 200px;
+        // right: 200px;
     }
     @media screen and (max-width: 1100px) {
         display: block;
