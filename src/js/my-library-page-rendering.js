@@ -63,22 +63,23 @@ function createLibMarkUp(results) {
       } else {
         genresNames = genresArray.join(', ');
       }
-      return `<ul>
-    <li class="card__item">
-        <div class="card__img-wrap">
+        return `
+      <div class="thumb">
+    <ul class="carditem" data-id='${movie.id}'>
+        <li class="cardimg-wrap">
             <img src="https://image.tmdb.org/t/p/w500/${movie.poster_path}" alt="poster of the movie ${movie.original_title}"
-                class="card__img"
+                class="cardimg"
             />
-        </div>
-        <div class="card__text-wrap">
-            <h2 class="card__name">${movie.original_title}</h2>
-            <div class="card__info">
-                <p class="card__genres">${genresNames}</span></p>
-                <p class="card__year">${year}</p>
+        </li>
+        <li class="cardtext-wrap">
+            <h2 class="cardname">${movie.original_title}</h2>
+            <div class="cardinfo">
+                <p class="cardgenres">${genresNames}</span></p>
+                <p class="cardyear">${year}</p>
             </div>
-        </div>
-    </li>
-</ul>`;
+        </li>
+    </ul>
+</div>`;
     })
     .join('');
 

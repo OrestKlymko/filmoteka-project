@@ -299,3 +299,9 @@ $desktop: 1280px;
       transition: 0.3s;
     }
   }
+
+  .lib-container {
+    display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+  }
