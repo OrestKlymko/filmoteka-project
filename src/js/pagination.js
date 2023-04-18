@@ -1,21 +1,22 @@
-
-  import  {getPopularMovies} from './get-popular-movies';
+import { getPopularMovies } from './get-popular-movies';
 import Pagination from 'tui-pagination';
 import createMarkUp from './make-markup-card';
 
 let currentPage = 1;
-export class CustomPagination {
+class CustomPagination {
   constructor() {
     const paginationEl = document.querySelector('.tui-pagination');
+
     paginationEl.addEventListener('click', this.pageButtonNext);
-    const getPopularMoviesAPI = new getPopularMovies();
   }
   paginationFunction(el) {
-    const container = document.querySelector('.tui-pagination'); //
+    const container = document.querySelector('.tui-pagination');
     const options = {
       totalItems: 10000,
       itemsPerPage: `${el.length}`,
+
       visiblePages: 5,
+
       page: 1,
       centerAlign: false,
       firstItemClassName: 'tui-first-child',
@@ -38,22 +39,27 @@ export class CustomPagination {
           '</a>',
       },
     };
-    const paginationEl = document.querySelector('.tui-pagination');
-    paginationEl.addEventListener('click', pageButtonNext);
-    const getPopularMoviesAPI = new getPopularMovies();
-    let currentPage = 1;
-    getPopularMoviesAPI.fetchPopularMovies().then(el => {
-      el.page = currentPage;
-      const movieWrapperEl = document.querySelector('.js-movies-wrapper');
-      movieWrapperEl.innerHTML = '';
-      createMarkUp(el.results);
+
+    const pagination = new Pagination(container, options);
+
+    pagination.on('afterMove', function (eventData) {
+      currentPage = eventData.page;
     });
   }
 
   pageButtonNext() {
+    const getPopularMoviesAPI = new getPopularMovies();
     getPopularMoviesAPI.page = currentPage;
+
     getPopularMoviesAPI.fetchPopularMovies().then(el => {
       el.page = currentPage;
+
+      const movieWrapperEl = document.querySelector('.js-movies-wrapper');
+
+      movieWrapperEl.innerHTML = '';
+
+      createMarkUp(el.results);
     });
   }
 }
+export default CustomPagination;

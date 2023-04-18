@@ -1,7 +1,6 @@
 import createMarkUp from './make-markup-card';
 import { getPopularMovies } from './get-popular-movies';
-import { CustomPagination } from './pagination';
-import { Pagination } from 'tui-pagination';
+import CustomPagination from './pagination';
 
 const movieWrapperEl = document.getElementById('uk');
 
