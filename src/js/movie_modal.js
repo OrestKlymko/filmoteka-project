@@ -20,9 +20,7 @@ modal.addEventListener('click', handleBackdropClick);
 
 const movieList = document.querySelector('.js-movies-wrapper') || document.querySelector('.lib-container');
 
-if (!movieList) {
-  return
-}
+
 
 
 movieList.addEventListener('click', event => {
