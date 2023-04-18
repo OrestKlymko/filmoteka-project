@@ -1,6 +1,4 @@
 import getMovieById from './get-movie-by-id.js';
-// import getMovieByName from './get-movie-by-name.js';
-
 
 const modal = document.querySelector('.modal');
 const title = document.querySelector('.js-movie-title');
@@ -27,7 +25,7 @@ movieList.addEventListener('click', event => {
   if (!movieCard) return;
 
   const movieId = movieCard.getAttribute('data-id');
-  
+
   getMovieById(movieId)
     .then(data => {
       poster.src = `https://image.tmdb.org/t/p/w500${data.poster_path}`;
@@ -48,6 +46,8 @@ movieList.addEventListener('click', event => {
   queueBtn.setAttribute('data-movie-id', movieId);
 
   modal.classList.add('modal--visible');
+  document.documentElement.style.overflowY = 'hidden';
+  window.addEventListener('keydown', handleEsc);
 });
 
 function handleBackdropClick(e) {
@@ -55,10 +55,20 @@ function handleBackdropClick(e) {
     closeModal();
   }
 }
+window.addEventListener('keydown', handleEsc);
 
 function closeModal() {
+  poster.src = '';
+  title.textContent = '';
+  vote.textContent = '';
+  votes.textContent = '';
+  popularity.textContent = '';
+  originalTitle.textContent = '';
+  genre.textContent = '';
+  overview.textContent = '';
   window.removeEventListener('keydown', handleEsc);
   modal.classList.remove('modal--visible');
+  document.documentElement.style.overflowY = 'auto';
 }
 
 function handleEsc(e) {
