@@ -5,7 +5,8 @@ const movieWrapperEl = document.getElementById('uk')
 
 const getPopularMoviesIns = new getPopularMovies()
 
-movieWrapperEl.innerHTML = ''
+
+// movieWrapperEl.innerHTML = ''
 
 const popularMoviesPageRendering = async() => {
     try {

@@ -18,7 +18,6 @@ const handleSearchMoviesForm = async event => {
 
     try {
         const {results} = await fetchMoviesByName(movieName)
-        // console.log(results)
 
         createMarkUp(results)
 
