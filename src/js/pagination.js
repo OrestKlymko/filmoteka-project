@@ -1,7 +1,5 @@
-export class Pagination {
-  
-  
-import { getPopularMovies } from './get-popular-movies';
+
+  import  {getPopularMovies} from './get-popular-movies';
 import Pagination from 'tui-pagination';
 import createMarkUp from './make-markup-card';
 
@@ -40,30 +38,22 @@ export class CustomPagination {
           '</a>',
       },
     };
-
-    const pagination = new Pagination(container, options);
-
-    pagination.on('afterMove', function (eventData) {
-      currentPage = eventData.page;
-    });
-  }
-  
+    const paginationEl = document.querySelector('.tui-pagination');
+    paginationEl.addEventListener('click', pageButtonNext);
+    const getPopularMoviesAPI = new getPopularMovies();
+    let currentPage = 1;
     getPopularMoviesAPI.fetchPopularMovies().then(el => {
       el.page = currentPage;
-
       const movieWrapperEl = document.querySelector('.js-movies-wrapper');
       movieWrapperEl.innerHTML = '';
-
       createMarkUp(el.results);
     });
   }
 
   pageButtonNext() {
-    const getPopularMoviesAPI = new getPopularMovies();
     getPopularMoviesAPI.page = currentPage;
-
     getPopularMoviesAPI.fetchPopularMovies().then(el => {
-      this.paginationFunction(el, currentPage);
+      el.page = currentPage;
     });
   }
 }
