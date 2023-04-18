@@ -1,4 +1,4 @@
-// import { fetchMoviesByName } from './get-movie-by-name'
+import getMoviesById from './get-movie-by-id.js'
 import Notiflix from 'notiflix';
 import { genres } from './genres-array'
 
@@ -6,24 +6,6 @@ const searchMoviesFormEl = document.querySelector('#search-form')
 const movieWrapperEl = document.querySelector('.js-movies-wrapper') 
 const searchInputEl = document.querySelector('.search-input');
 
-//видалити після імпорту
-const BASE_URL = 'https://api.themoviedb.org/3';
-const API_KEY = '?api_key=f7d7a9b2e374f67b5381a74b61fb7dc2';
-
-export default async function fetchMoviesByName(movieName) {
-  try {
-    const response = await fetch(
-      `${BASE_URL}/search/movie${API_KEY}&query=${movieName}&language=en-US`
-    );
-    const data = await response.json();
-    if (data.results.length === 0) {
-      throw new Error(`No movies found with name "${movieName}"`);
-    }
-    return data;
-  } catch (error) {
-    console.log(error);
-  }
-}
 
 const handleSearchMoviesForm = async event => {
     event.preventDefault()
@@ -37,7 +19,7 @@ const handleSearchMoviesForm = async event => {
     }
 
     try {
-        const {results} = await fetchMoviesByName(movieName)
+        const {results} = await getMoviesById(movieName)
         // console.log(results)
 
         createMarkUp(results)
