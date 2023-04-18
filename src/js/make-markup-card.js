@@ -54,7 +54,7 @@ let genresNames = ''
             }
 
         return `<div class="thumb">
-    <ul class="carditem">
+    <ul class="carditem" data-id='${movie.id}'>
         <li class="cardimg-wrap">
             <img src="https://image.tmdb.org/t/p/w500/${movie.poster_path}" alt="poster of the movie ${movie.original_title}"
                 class="cardimg"
