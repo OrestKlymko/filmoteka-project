@@ -46,7 +46,7 @@ movieList.addEventListener('click', event => {
       console.error(error);
     });
 
-  trailerBtn.setAttribute('data-movie-id', movieId);
+  trailerBtn.setAttribute('data-trailer-url', movieId);
   watchedBtn.setAttribute('data-movie-id', movieId);
   queueBtn.setAttribute('data-movie-id', movieId);
 
