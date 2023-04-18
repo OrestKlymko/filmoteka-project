@@ -44,6 +44,16 @@ export class CustomPagination {
       currentPage = eventData.page;
     });
   }
+  
+    getPopularMoviesAPI.fetchPopularMovies().then(el => {
+      el.page = currentPage;
+
+      const movieWrapperEl = document.querySelector('.js-movies-wrapper');
+      movieWrapperEl.innerHTML = '';
+
+      createMarkUp(el.results);
+    });
+  }
 
   pageButtonNext() {
     const getPopularMoviesAPI = new getPopularMovies();
