@@ -1,4 +1,4 @@
-export class CustomPagination {
+export class Pagination {
   
   
 import { getPopularMovies } from './get-popular-movies';
@@ -6,7 +6,7 @@ import Pagination from 'tui-pagination';
 import createMarkUp from './make-markup-card';
 
 let currentPage = 1;
-
+export class CustomPagination {
   constructor() {
     const paginationEl = document.querySelector('.tui-pagination');
     paginationEl.addEventListener('click', this.pageButtonNext);
