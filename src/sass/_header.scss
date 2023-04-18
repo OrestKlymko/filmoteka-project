@@ -64,11 +64,11 @@ $desktop: 1280px;
   z-index: 1;
 
   @media screen and (min-width: $tablet) {
-    left: 44%;
+    left: 23%;
     gap: 4px;
   }
   @media screen and (min-width: $desktop) {
-    left: 17.3%;
+    left: 15.3%;
   }
     }
 
@@ -154,8 +154,6 @@ $desktop: 1280px;
         top: 0.8%;
       }
       
-
-
     }
 
     .search__form {
@@ -203,6 +201,7 @@ $desktop: 1280px;
       width: 20%;
       border: none;
       outline: none;
+      margin-left: 10px;
 
       &:hover,
     &:focus {
@@ -246,6 +245,7 @@ color: #FFFFFF;
     justify-content: flex-start;
     margin-left: 16px;
     margin-top: 50px;
+    margin-bottom: 16px;
     width: 233px;
     height: 47px;
   }
@@ -253,6 +253,7 @@ color: #FFFFFF;
   @media screen and (min-width: $desktop) {
     justify-content: flex-start;
     margin-top: 135px;
+    margin-bottom: 32px;
     width: 190px;
     height: 38px;
 }
