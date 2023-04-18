@@ -18,11 +18,7 @@ const queueBtn = document.querySelector('.queueBtn');
 closeButton.addEventListener('click', closeModal);
 modal.addEventListener('click', handleBackdropClick);
 
-const movieList = document.querySelector('.js-movies-wrapper');
-
-if (!movieList) {
-  return
-}
+const movieList = document.querySelector('.js-movies-wrapper') || document.querySelector('.lib-container');
 
 movieList.addEventListener('click', event => {
   const movieCard = event.target.closest('.carditem');
