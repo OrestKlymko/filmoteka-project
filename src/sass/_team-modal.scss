@@ -41,10 +41,10 @@
 }
 
 .team__item:nth-child(odd) {
-    background-color: #c928258a;
+    background-color: #b92e2c9a;
 }
 .team__item:nth-child(even) {
-    background-color: #ffffff; 
+    background-color: var( --secondary-bcg-color); 
     top: -10px;
 }
 .team__list {
@@ -80,13 +80,16 @@
     top: 8px;
     width: 30px;
     height: 30px;
-    border: 1px solid rgba(0, 0, 0, 0.1);
+    
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
+    fill: var(--headline-bcg-color);
     background-color: transparent;
     cursor: pointer;
+    &:hover, &:focus {
+        fill: var(--description-color);}
 }
 
 .modal__container {
@@ -138,7 +141,7 @@
     justify-content: center;
     transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
     &:hover, &:focus {
-    background-color: #B92F2C;
+    background-color: var(--description-color);
     }
 }
 
