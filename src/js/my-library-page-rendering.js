@@ -16,9 +16,7 @@ myLibraryBtnEl.addEventListener('click', handleWatchedMoviesClick);
 
 createLibMarkUp(watchedMovies)
 
-function handleWatchedMoviesClick(e) {
-  e.preventDefault();
-
+function handleWatchedMoviesClick() {
   movieWrapperEl.innerHTML = '';
 
   if (watchedMovies.length === 0) {
