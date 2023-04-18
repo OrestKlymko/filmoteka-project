@@ -57,11 +57,11 @@ function createLibMarkUp(results) {
 
       const genresArray = movie.genres.map(genre => genre.name);
       let genresNames = '';
-      // if (genresArray.length > 2) {
-      //   genresNames = arrayLengthCheck(genresArray).join(', ') + ', other';
-      // } else {
-      //   genresNames = genresArray.join(', ');
-      // }
+      if (genresArray.length > 2) {
+        genresNames = arrayLengthCheck(genresArray).join(', ') + ', other';
+      } else {
+        genresNames = genresArray.join(', ');
+      }
         return `
       <div class="thumb">
     <ul class="carditem" data-id='${movie.id}'>
@@ -86,6 +86,6 @@ function createLibMarkUp(results) {
   return markUp;
 }
 
-// function arrayLengthCheck(array) {
-//   return array.slice(0,2)
-//   };
+function arrayLengthCheck(array) {
+  return array.slice(0,2)
+  };
