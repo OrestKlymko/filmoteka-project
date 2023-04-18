@@ -1,6 +1,6 @@
 import { watchedMovies, queuedMovies } from './local-storage'; 
 import Notiflix from 'notiflix';
-import {arrayLengthCheck} from './search-movie-page-rendering'
+import arrayLengthCheck from './make-markup-card'
 
 console.log( watchedMovies)
 const movieWrapperEl = document.querySelector('.js-movies-wrapper') 

@@ -1,4 +1,6 @@
-import getMovieById from './get-movie-by-id';
+import getMovieById from './get-movie-by-id.js';
+// import getMovieByName from './get-movie-by-name.js';
+
 
 const modal = document.querySelector('.modal');
 const title = document.querySelector('.js-movie-title');
@@ -26,6 +28,7 @@ movieList.addEventListener('click', event => {
 
   const movieId = movieCard.dataset.id;
   // const movieId = '299536';
+  console.log(movieId)
   getMovieById(movieId)
     .then(data => {
       poster.src = `https://image.tmdb.org/t/p/w500${data.poster_path}`;

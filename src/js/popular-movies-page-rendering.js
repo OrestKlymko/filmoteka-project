@@ -1,4 +1,4 @@
-import { createMarkUp } from './make-markup-card'
+import createMarkUp from './make-markup-card'
 import {getPopularMovies} from './get-popular-movies'
 
 const movieWrapperEl = document.getElementById('uk') 
@@ -10,7 +10,6 @@ movieWrapperEl.innerHTML = ''
 const popularMoviesPageRendering = async() => {
     try {
         const { results } = await getPopularMoviesIns.fetchPopularMovies()
-        // console.log(results)
 
         createMarkUp(results)
 

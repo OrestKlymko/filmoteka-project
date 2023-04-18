@@ -1,4 +1,4 @@
-import './js/pagination.js';
+// import './js/pagination.js';
 import './js/local-storage';
 import './js/movie_modal';
 import './js/team';
