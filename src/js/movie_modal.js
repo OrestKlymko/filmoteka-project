@@ -26,9 +26,8 @@ movieList.addEventListener('click', event => {
   const movieCard = event.target.closest('.carditem');
   if (!movieCard) return;
 
-  const movieId = movieCard.dataset.id;
-  // const movieId = '299536';
-  console.log(movieId)
+  const movieId = movieCard.getAttribute('data-id');
+  
   getMovieById(movieId)
     .then(data => {
       poster.src = `https://image.tmdb.org/t/p/w500${data.poster_path}`;
