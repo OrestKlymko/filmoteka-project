@@ -1,31 +1,21 @@
 import { getPopularMovies } from './get-popular-movies';
 import Pagination from 'tui-pagination';
+import createMarkUp from './make-markup-card';
+
+let currentPage = 1;
 export class CustomPagination {
   constructor() {
     const paginationEl = document.querySelector('.tui-pagination');
-    this.pageButtonNext = this.pageButtonNext.bind(this);
     paginationEl.addEventListener('click', this.pageButtonNext);
     const getPopularMoviesAPI = new getPopularMovies();
-    let currentPage = 1;
-    getPopularMoviesAPI
-      .fetchPopularMovies()
-      .then(data => {
-        if (data.results.length === 0 || !data) {
-          return;
-        }
-        this.paginationFunction(data, currentPage);
-      })
-      .catch(error => {
-        console.log(error);
-      });
   }
-  paginationFunction(el, currentPage) {
-    const container = document.querySelector('.tui-pagination'); // 
+  paginationFunction(el) {
+    const container = document.querySelector('.tui-pagination'); //
     const options = {
       totalItems: 10000,
-      itemsPerPage: `${el.results.length}`,
+      itemsPerPage: `${el.length}`,
       visiblePages: 5,
-      page: currentPage,
+      page: 1,
       centerAlign: false,
       firstItemClassName: 'tui-first-child',
       lastItemClassName: 'tui-last-child',
