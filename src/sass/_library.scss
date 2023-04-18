@@ -157,6 +157,7 @@ $desktop: 1280px;
     justify-content: flex-start;
     margin-left: 16px;
     margin-top: 105px;
+    margin-bottom: 16px;
     width: 233px;
     height: 47px;
   }
@@ -164,6 +165,7 @@ $desktop: 1280px;
   @media screen and (min-width: $desktop) {
     justify-content: flex-start;
     margin-top: 151px;
+    margin-bottom: 32px;
     margin-left: 32px;
     width: 190px;
     height: 38px;
@@ -200,12 +202,12 @@ $desktop: 1280px;
   
   @media screen and (min-width: $tablet) {
     position: absolute;
-    left: 70%;
+    left: 71%;
     top: -1%;
   }
 
   @media screen and (min-width: $desktop) {
-    left: 77%;
+    left: 80%;
     top: -1%;
   }
 }
