@@ -1,4 +1,4 @@
-import './js/movie_modal.js';
+import './js/movie-modal.js';
 import './js/get-movie-by-id.js';
 import './js/get-movie-by-name.js';
 import './js/get-movie-details.js';
