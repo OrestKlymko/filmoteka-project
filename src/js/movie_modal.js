@@ -24,6 +24,7 @@ if (!movieList) {
   return
 }
 
+
 movieList.addEventListener('click', event => {
   const movieCard = event.target.closest('.carditem');
   if (!movieCard) return;

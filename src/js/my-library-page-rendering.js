@@ -1,6 +1,5 @@
 import { watchedMovies, queuedMovies } from './local-storage';
 import Notiflix from 'notiflix';
-import { createMarkUp, arrayLengthCheck } from './make-markup-card';
 
 const movieWrapperEl = document.querySelector('.lib-container');
 const myLibraryBtnEl = document.querySelector('.menu__link__library');
@@ -86,3 +85,7 @@ function createLibMarkUp(results) {
   movieWrapperEl.insertAdjacentHTML('beforeend', markUp);
   return markUp;
 }
+
+function arrayLengthCheck(array) {
+  return array.slice(0,2) 
+  };
