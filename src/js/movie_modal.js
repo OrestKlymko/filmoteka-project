@@ -36,7 +36,7 @@ movieList.addEventListener('click', event => {
       title.textContent = data.title;
       vote.textContent = `${data.vote_average}`;
       votes.textContent = `${data.vote_count}`;
-      popularity.textContent = `${data.popularity}`;
+      popularity.textContent = `${data.popularity.toFixed(1)}`;
       originalTitle.textContent = data.original_title;
       genre.textContent = data.genres.map(genre => genre.name).join(', ');
       overview.textContent = data.overview;
