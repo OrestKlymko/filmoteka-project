@@ -1,4 +1,4 @@
-import './js/movie_modal';
+import './js/movie-modal.js';
 import './js/get-movie-by-id.js';
 import './js/get-movie-by-name.js';
 import './js/get-movie-details.js';
@@ -10,4 +10,4 @@ import './js/popular-movies-page-rendering.js';
 import './js/make-markup-card.js';
 import './js/get-trailer.js';
 import './js/show-trailer.js';
-import './js/team';
+import './js/team.js';
