@@ -60,15 +60,15 @@ $desktop: 1280px;
   position: relative;
   display: flex;
   align-items: flex-start;
-  gap: 10px;
+  gap: 4px;
   z-index: 1;
 
   @media screen and (min-width: $tablet) {
-    left: 23%;
+    left: 25%;
     gap: 4px;
   }
   @media screen and (min-width: $desktop) {
-    left: 15.3%;
+    left: 16.2%;
   }
     }
 
@@ -151,7 +151,7 @@ $desktop: 1280px;
 
       @media screen and (min-width: $tablet) {
         //position: relative;
-        top: 0.8%;
+        top: 4.3%;
       }
       
     }
@@ -245,7 +245,6 @@ color: #FFFFFF;
     justify-content: flex-start;
     margin-left: 16px;
     margin-top: 50px;
-    margin-bottom: 16px;
     width: 233px;
     height: 47px;
   }
@@ -253,7 +252,7 @@ color: #FFFFFF;
   @media screen and (min-width: $desktop) {
     justify-content: flex-start;
     margin-top: 135px;
-    margin-bottom: 32px;
+    margin-bottom: 18px;
     width: 190px;
     height: 38px;
 }
