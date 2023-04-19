@@ -124,6 +124,7 @@ $desktop: 1280px;
     line-height: calc( 14 / 12);
     color: #000000;
     text-transform: uppercase;
+    white-space: nowrap;
 
     @media screen and (min-width: $tablet) {
     width: 109px;
