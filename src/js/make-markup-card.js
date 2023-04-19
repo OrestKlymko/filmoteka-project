@@ -2,6 +2,15 @@ import fetchMoviesByName from './get-movie-by-name'
 import Notiflix from 'notiflix';
 import { genres } from './genres-array'
 
+Notiflix.Notify.init({
+  width: '280px',
+  position: 'center-top',
+  distance: '10px',
+    opacity: 1,
+  timeout: 3000,
+  // ...
+});
+
 const searchMoviesFormEl = document.querySelector('#search-form')
 const movieWrapperEl = document.querySelector('.js-movies-wrapper') 
 const searchInputEl = document.querySelector('search__form');
@@ -18,17 +27,10 @@ const handleSearchMoviesForm = async event => {
 
     try {
         const {results} = await fetchMoviesByName(movieName)
-
         createMarkUp(results)
-
-        if (!results.length) {
-            console.log('Movies not found!');
-            Notiflix.Notify.failure('Search result not successful. Enter the correct movie name.'
-            );
-      return;
-        }
     } catch (err) {
-        console.log(err)
+        Notiflix.Notify.info(`No movies found with name "${movieName}" Enter the correct movie name.`
+            )
     }
 
 }
