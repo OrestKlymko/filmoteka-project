@@ -5,8 +5,8 @@ const modal = document.querySelector('.modal');
 let instance;
 
 export default async function onTrailerButtonClick(e) {
-  const trailerId = e.target.getAttribute('data-trailer-url');
   modal.classList.remove('modal--visible');
+  const trailerId = e.target.getAttribute('data-trailer-url');
   try {
     const videoSrc = await getTrailer(trailerId);
     instance = basicLightbox.create(`
@@ -14,8 +14,8 @@ export default async function onTrailerButtonClick(e) {
     `, {
       onClose: onLightboxClose,
     });
-    document.addEventListener('keydown', onLightboxKeyPress);
     instance.show();
+    document.addEventListener('keydown', onLightboxKeyPress);
   } catch (error) {
     trailerButton.classList.add('is-hidden');
   }
