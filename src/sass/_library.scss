@@ -60,11 +60,10 @@ $desktop: 1280px;
 
 .menu__library {
   display: flex;
-  margin-left: 14px;
   gap: 4px;
 
   @media screen and (min-width: $tablet) {
-    margin-left: 16px;
+    
   }
   
 
@@ -156,9 +155,8 @@ $desktop: 1280px;
 
   @media screen and (min-width: $tablet) {
     justify-content: flex-start;
-    margin-left: 16px;
+    margin-left: 0px;
     margin-top: 105px;
-    margin-bottom: 16px;
     width: 233px;
     height: 47px;
   }
@@ -166,7 +164,7 @@ $desktop: 1280px;
   @media screen and (min-width: $desktop) {
     justify-content: flex-start;
     margin-top: 151px;
-    margin-bottom: 32px;
+    margin-bottom: 16px;
     margin-left: 32px;
     width: 190px;
     height: 38px;
@@ -208,7 +206,7 @@ $desktop: 1280px;
   }
 
   @media screen and (min-width: $desktop) {
-    left: 80%;
+    left: 79%;
     top: -1%;
   }
 }
@@ -219,8 +217,11 @@ $desktop: 1280px;
   align-items: center;
   justify-content: center;
   margin-top: 16px;
-  gap: 10px;
+  gap: 4px;
 
+  @media screen and (min-width: $desktop) {
+    gap:8px;
+  }
     
   }
   
