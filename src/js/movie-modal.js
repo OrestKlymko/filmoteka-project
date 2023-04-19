@@ -1,4 +1,5 @@
 import getMovieById from './get-movie-by-id.js';
+import { watchedMovies, queuedMovies } from './local-storage';  
 
 const modal = document.querySelector('.modal');
 const title = document.querySelector('.js-movie-title');
@@ -18,10 +19,9 @@ const queueBtn = document.querySelector('.queueBtn');
 closeButton.addEventListener('click', closeModal);
 modal.addEventListener('click', handleBackdropClick);
 
-const movieList = document.querySelector('.js-movies-wrapper') || document.querySelector('.lib-container');
-
-
-
+const movieList =
+  document.querySelector('.js-movies-wrapper') ||
+  document.querySelector('.lib-container');
 
 movieList.addEventListener('click', event => {
   const movieCard = event.target.closest('.carditem');
@@ -51,6 +51,9 @@ movieList.addEventListener('click', event => {
   modal.classList.add('modal--visible');
   document.documentElement.style.overflowY = 'hidden';
   window.addEventListener('keydown', handleEsc);
+
+  checkMovieInWatched(movieId)
+  checkMovieInQueue(movieId)
 });
 
 function handleBackdropClick(e) {
@@ -77,5 +80,25 @@ function closeModal() {
 function handleEsc(e) {
   if (e.code === 'Escape') {
     closeModal();
+  }
+}
+
+function checkMovieInWatched(id) {
+  const isMovieWatched = watchedMovies.some(el => el.id === Number(id))
+  
+  if (isMovieWatched) {
+    watchedBtn.textContent = 'Remove from watched';
+  } else {
+    watchedBtn.textContent = 'Add to watch';
+  }
+}
+
+function checkMovieInQueue(id) {
+  const isMovieQueue = queuedMovies.some(el => el.id === Number(id))
+  
+  if (isMovieQueue) {
+    queueBtn.textContent = 'Remove from queue';
+  } else {
+    queueBtn.textContent = 'Add to queue';
   }
 }

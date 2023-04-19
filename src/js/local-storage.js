@@ -25,10 +25,12 @@ async function handleWatchBtnClick(e) {
 
   if (isMovieInWatched) {
     watchedMovies = watchedMovies.filter(movie => movie.id !== movieObj.id);
+    addToWatchedBtn.textContent = 'Add to watch';
     return localStorage.setItem(WATCHED_MOVIES, JSON.stringify(watchedMovies));
   }
 
   watchedMovies.push(movieObj);
+  addToWatchedBtn.textContent = 'Remove from watched';
   return localStorage.setItem(WATCHED_MOVIES, JSON.stringify(watchedMovies));
 }
 
@@ -39,9 +41,11 @@ async function handleQueueBtnClick(e) {
   const isMovieInQueue = queuedMovies.some(movie => movie.id === movieObj.id);
   if (isMovieInQueue) {
     queuedMovies = queuedMovies.filter(movie => movie.id !== movieObj.id);
+    addToQueueBtn.textContent = 'Add to queue';
     return localStorage.setItem('queuedMovies', JSON.stringify(queuedMovies));
   }
 
   queuedMovies.push(movieObj);
+  addToQueueBtn.textContent = 'Remove from queue';
   return localStorage.setItem('queuedMovies', JSON.stringify(queuedMovies));
 }
