@@ -1,3 +1,4 @@
+import { spin, stopSpin } from './notiflix-spin';
 import { watchedMovies, queuedMovies } from './local-storage';
 import Notiflix from 'notiflix';
 
@@ -11,24 +12,32 @@ watchedBtnEl.addEventListener('click', handleWatchedMoviesClick);
 queredBtnEl.addEventListener('click', handleQueuedMoviesClick);
 
 myLibraryBtnEl.addEventListener('click', handleWatchedMoviesClick);
+
+spin();
+stopSpin();
 // додати eventListiner до кнопок watched i quered
 
-createLibMarkUp(watchedMovies)
-
+createLibMarkUp(watchedMovies);
 function handleWatchedMoviesClick() {
   movieWrapperEl.innerHTML = '';
+  spin();
+  try {
+    if (watchedMovies.length === 0) {
+      clearPage();
+      return;
+    }
 
-  if (watchedMovies.length === 0) {
-    clearPage();
-    return;
+    return createLibMarkUp(watchedMovies);
+  } catch (error) {
+    console.error('Set state error: ', error.message);
+  } finally {
+    stopSpin();
   }
-
-  return createLibMarkUp(watchedMovies);
 }
 
 function handleQueuedMoviesClick() {
   movieWrapperEl.innerHTML = '';
-
+  spin();
   try {
     if (queuedMovies.length === 0) {
       clearPage();
@@ -37,6 +46,8 @@ function handleQueuedMoviesClick() {
     createLibMarkUp(queuedMovies);
   } catch (error) {
     console.error('Set state error: ', error.message);
+  } finally {
+    stopSpin();
   }
 }
 
@@ -62,7 +73,7 @@ function createLibMarkUp(results) {
       } else {
         genresNames = genresArray.join(', ');
       }
-        return `
+      return `
       <div class="thumb">
     <ul class="carditem" data-id='${movie.id}'>
         <li class="cardimg-wrap">
@@ -87,5 +98,5 @@ function createLibMarkUp(results) {
 }
 
 function arrayLengthCheck(array) {
-  return array.slice(0,2)
-  };
+  return array.slice(0, 2);
+}
