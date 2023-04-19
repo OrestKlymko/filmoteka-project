@@ -160,7 +160,7 @@ $desktop: 1280px;
       width: 252px;
       height: 38px;
       margin-bottom: 8px;
-            
+      
       display: flex;
       align-items:center;
       justify-content: center;
@@ -189,13 +189,13 @@ $desktop: 1280px;
       
       &::placeholder {
         font-family: 'Roboto';
-        font-style: normal;
-         font-weight: 400;
+         font-weight: 500;
          font-size: 12px;
          line-height: calc(14 / 12);
-          color: #000000;
+        color: #000000; 
       }
     }
+
     
     .search__form button {
       width: 20%;
