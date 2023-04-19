@@ -9,14 +9,13 @@ class CustomPagination {
 
     paginationEl.addEventListener('click', this.pageButtonNext);
   }
+
   paginationFunction(el) {
     const container = document.querySelector('.tui-pagination');
     const options = {
       totalItems: 10000,
       itemsPerPage: `${el.length}`,
-
       visiblePages: 5,
-
       page: 1,
       centerAlign: false,
       firstItemClassName: 'tui-first-child',
@@ -42,24 +41,31 @@ class CustomPagination {
 
     const pagination = new Pagination(container, options);
 
-    pagination.on('afterMove', function (eventData) {
+    pagination.on('beforeMove', function (eventData) {
       currentPage = eventData.page;
     });
-  }
 
-  pageButtonNext() {
-    const getPopularMoviesAPI = new getPopularMovies();
-    getPopularMoviesAPI.page = currentPage;
+    pagination.on('afterMove', function (eventData) {
+      const getPopularMoviesAPI = new getPopularMovies();
+      getPopularMoviesAPI.page = currentPage;
 
-    getPopularMoviesAPI.fetchPopularMovies().then(el => {
-      el.page = currentPage;
+      getPopularMoviesAPI.fetchPopularMovies().then(el => {
+        el.page = currentPage;
 
-      const movieWrapperEl = document.querySelector('.js-movies-wrapper');
-
-      movieWrapperEl.innerHTML = '';
-
-      createMarkUp(el.results);
+        const movieWrapperEl = document.querySelector('.js-movies-wrapper');
+        movieWrapperEl.innerHTML = '';
+        createMarkUp(el.results);
+      });
     });
   }
+
+  pageButtonNext(event) {
+    event.preventDefault();
+
+    const container = document.querySelector('.tui-pagination');
+    const pagination = new Pagination(container);
+    pagination.movePage(parseInt(event.target.innerText));
+  }
 }
+
 export default CustomPagination;
