@@ -2,6 +2,15 @@ import { spin, stopSpin } from './notiflix-spin';
 import { watchedMovies, queuedMovies } from './local-storage';
 import Notiflix from 'notiflix';
 
+Notiflix.Notify.init({
+  width: '280px',
+  position: 'center-top',
+  distance: '10px',
+    opacity: 1,
+  timeout: 3000,
+  // ...
+});
+
 const movieWrapperEl = document.querySelector('.lib-container');
 const myLibraryBtnEl = document.querySelector('.menu__link__library');
 const watchedBtnEl = document.querySelector('.library__link__watched');
@@ -27,7 +36,7 @@ function handleWatchedMoviesClick() {
       return;
     }
 
-    return createLibMarkUp(watchedMovies);
+    createLibMarkUp(watchedMovies);
   } catch (error) {
     console.error('Set state error: ', error.message);
   } finally {
@@ -55,7 +64,7 @@ function clearPage() {
   //   return  markUp = `<p>Sorry, there is no any movie in your library yet</p>
   // <svg class="icon icon-images"><use xlink:href="#icon-images"></use></svg> `
 
-  return Notiflix.Notify.failure(
+  return Notiflix.Notify.info(
     'Sorry, there is no any movie in your library yet.'
   );
 }
