@@ -18,15 +18,16 @@ const searchInputEl = document.querySelector('search__form');
 const handleSearchMoviesForm = async event => {
     event.preventDefault()
 
-    movieWrapperEl.innerHTML = '';
+
+
+    try {
+          movieWrapperEl.innerHTML = '';
 
     const movieName = event.currentTarget.searchQuery.value.trim();
   console.log(movieName)
     if (movieName === '') {
     return;
     }
-
-    try {
         const {results} = await fetchMoviesByName(movieName)
         createMarkUp(results)
     } catch (err) {
