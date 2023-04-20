@@ -21,6 +21,7 @@ const handleSearchMoviesForm = async event => {
     movieWrapperEl.innerHTML = '';
 
     const movieName = event.currentTarget.searchQuery.value.trim();
+  console.log(movieName)
     if (movieName === '') {
     return;
     }
