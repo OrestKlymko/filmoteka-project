@@ -22,8 +22,7 @@ queredBtnEl.addEventListener('click', handleQueuedMoviesClick);
 
 myLibraryBtnEl.addEventListener('click', handleWatchedMoviesClick);
 
-spin();
-stopSpin();
+
 // додати eventListiner до кнопок watched i quered
 
 createLibMarkUp(watchedMovies);
