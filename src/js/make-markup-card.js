@@ -1,62 +1,59 @@
-import fetchMoviesByName from './get-movie-by-name'
+import fetchMoviesByName from './get-movie-by-name';
 import Notiflix from 'notiflix';
-import { genres } from './genres-array'
+import { genres } from './genres-array';
 
 Notiflix.Notify.init({
   width: '280px',
   position: 'center-top',
   distance: '10px',
-    opacity: 1,
+  opacity: 1,
   timeout: 3000,
   // ...
 });
 
-const searchMoviesFormEl = document.querySelector('#search-form')
-const movieWrapperEl = document.querySelector('.js-movies-wrapper') 
-const searchInputEl = document.querySelector('search__form');
+const searchMoviesFormEl = document.querySelector('#search-form');
+const movieWrapperEl = document.querySelector('.js-movies-wrapper');
 
 const handleSearchMoviesForm = async event => {
-    event.preventDefault()
+  event.preventDefault();
 
-
-
-    try {
-          movieWrapperEl.innerHTML = '';
-
-    const movieName = event.currentTarget.searchQuery.value.trim();
-  console.log(movieName)
-    if (movieName === '') {
+  const movieName = event.currentTarget.searchQuery.value.trim();
+  if (!movieName) {
+    Notiflix.Notify.info('Please fill in the input field for image search');
     return;
-    }
-        const {results} = await fetchMoviesByName(movieName)
-        createMarkUp(results)
-    } catch (err) {
-        Notiflix.Notify.info(`No movies found with name "${movieName}" Enter the correct movie name.`
-            )
-    }
+  }
 
-}
+  try {
+    const { results } = await fetchMoviesByName(movieName);
+    movieWrapperEl.innerHTML = '';
+    createMarkUp(results);
+  } catch (err) {
+    Notiflix.Notify.info(
+      `No movies found with name "${movieName}" Enter the correct movie name.`
+    );
+  }
+};
 
 export default function createMarkUp(results) {
-    const markUp = results.map(
-        (movie) => {
-            const date = new Date(`${movie.release_date}`);
-            const year = date.getFullYear()
+  const markUp = results
+    .map(movie => {
+      const date = new Date(`${movie.release_date}`);
+      const year = date.getFullYear();
 
-            const genresArray = movie.genre_ids.map((id) => { 
-                const genre = genres.find(genre => genre.id === id)
+      const genresArray = movie.genre_ids.map(id => {
+        const genre = genres.find(genre => genre.id === id);
 
-                  return genre ? genre.name : '';  
-            })
-            // console.log(genresArray)
-let genresNames = ''
-            if (genresArray.length > 2 ) {
-                genresNames = arrayLengthCheck(genresArray).join(', ') + ", other"
-            } else {
-                genresNames = genresArray.join(', ')
-            }
+        return genre ? genre.name : '';
+      });
+      // console.log(genresArray)
+      let genresNames = '';
+      if (genresArray.length > 2) {
+        genresNames = arrayLengthCheck(genresArray).join(', ') + ', other';
+      } else {
+        genresNames = genresArray.join(', ');
+      }
 
-        return `<div class="thumb">
+      return `<div class="thumb">
     <ul class="carditem" data-id='${movie.id}'>
         <li class="cardimg-wrap">
             <img src="https://image.tmdb.org/t/p/w500/${movie.poster_path}" alt="poster of the movie ${movie.original_title}"
@@ -72,17 +69,17 @@ let genresNames = ''
         </li>
     </ul>
 </div>
-`
-   })
-        .join('');
+`;
+    })
+    .join('');
 
-    movieWrapperEl.insertAdjacentHTML('beforeend', markUp);
+  movieWrapperEl.insertAdjacentHTML('beforeend', markUp);
 
-    return markUp
+  return markUp;
 }
 
 export function arrayLengthCheck(array) {
-    return array.slice(0,2) 
-    };
+  return array.slice(0, 2);
+}
 
-searchMoviesFormEl.addEventListener('submit', handleSearchMoviesForm)
+searchMoviesFormEl.addEventListener('submit', handleSearchMoviesForm);

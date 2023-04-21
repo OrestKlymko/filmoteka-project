@@ -66,7 +66,7 @@ class CustomPagination {
   
     const container = document.querySelector('.tui-pagination');
     const pagination = new Pagination(container);
-    pagination.movePage(parseInt(event.target.innerText));
+    // pagination.movePage(parseInt(event.target.innerText));
   }
 }
 
