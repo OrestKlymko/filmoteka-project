@@ -5,7 +5,7 @@ Notiflix.Notify.init({
   width: '280px',
   position: 'center-top',
   distance: '10px',
-    opacity: 1,
+  opacity: 1,
   timeout: 3000,
   // ...
 });
@@ -14,6 +14,7 @@ const movieWrapperEl = document.querySelector('.lib-container');
 const myLibraryBtnEl = document.querySelector('.menu__link__library');
 const watchedBtnEl = document.querySelector('.library__link__watched');
 const queredBtnEl = document.querySelector('.library__link__queue');
+const noMoviesImgEl = document.querySelector('.no-movies-img');
 
 myLibraryBtnEl.addEventListener('click', handleWatchedMoviesClick);
 watchedBtnEl.addEventListener('click', handleWatchedMoviesClick);
@@ -23,13 +24,13 @@ myLibraryBtnEl.addEventListener('click', handleWatchedMoviesClick);
 
 createLibMarkUp(watchedMovies);
 function handleWatchedMoviesClick() {
-  movieWrapperEl.innerHTML = '';
   try {
     if (watchedMovies.length === 0) {
       clearPage();
       return;
     }
 
+    movieWrapperEl.innerHTML = '';
     createLibMarkUp(watchedMovies);
   } catch (error) {
     console.error('Set state error: ', error.message);
@@ -37,12 +38,12 @@ function handleWatchedMoviesClick() {
 }
 
 function handleQueuedMoviesClick() {
-  movieWrapperEl.innerHTML = '';
   try {
     if (queuedMovies.length === 0) {
       clearPage();
       return;
     }
+    movieWrapperEl.innerHTML = '';
     createLibMarkUp(queuedMovies);
   } catch (error) {
     console.error('Set state error: ', error.message);
@@ -50,15 +51,18 @@ function handleQueuedMoviesClick() {
 }
 
 function clearPage() {
-  //   return  markUp = `<p>Sorry, there is no any movie in your library yet</p>
-  // <svg class="icon icon-images"><use xlink:href="#icon-images"></use></svg> `
+  Notiflix.Notify.info('Sorry, there is no any movie in your library yet.');
 
-  return Notiflix.Notify.info(
-    'Sorry, there is no any movie in your library yet.'
-  );
+  return;
 }
 
 function createLibMarkUp(results) {
+  if (results.length === 0) {
+    noMoviesImgEl.classList.remove('hide');
+    return;
+  } else {
+    noMoviesImgEl.classList.add('hide');
+  }
   const markUp = results
     .map(movie => {
       const date = new Date(`${movie.release_date}`);
