@@ -1,10 +1,10 @@
 //------------------------------------------main styles for modal
 .modal {
   position: fixed;
-  width: 100%;
+  min-width: 100%;
   height: 100%;
-  top: 0%;
-  left: 0%;
+  top: 0;
+  left: 0;
   background-color: rgba(0, 0, 0, 0.2);
   opacity: 1;
   z-index: 9999;
@@ -21,18 +21,24 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: calc(100% - 40px);
-  max-width: 280px;
   background-color: #ffffff;
+  max-width: 380px;
+
+  @media screen and (max-width: 600px) {
+    min-width: 85%; 
+  }
+
+  min-width: 70%;
 
   @media screen and (min-width: 768px) {
-    min-width: 704px;
+    min-width: 0;
+    max-width: 704px;
     height: auto;
     width: calc(100% - 64px);
   }
 
   @media screen and (min-width: 1200px) {
-    min-width: 806px;
+    max-width: 806px;
     height: auto;
   }
 }
