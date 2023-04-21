@@ -3,16 +3,27 @@
   flex-direction: column;
   align-items: center;
   gap: 20px;
+  margin-bottom: 40px;
 
   @media screen and (min-width: 768px) {
     flex-direction: row;
     flex-wrap: wrap;
     gap: 32px;
+    margin-bottom: 60px;
   }
 
   @media screen and (min-width: 1280px) {
     gap: 16px;
   }
+}
+
+.no-movies-img {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hide {
+  display: none;
 }
 
 .js-movies-wrapper {
