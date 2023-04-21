@@ -61,7 +61,9 @@ class CustomPagination {
 
   pageButtonNext(event) {
     event.preventDefault();
-
+  
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  
     const container = document.querySelector('.tui-pagination');
     const pagination = new Pagination(container);
     pagination.movePage(parseInt(event.target.innerText));

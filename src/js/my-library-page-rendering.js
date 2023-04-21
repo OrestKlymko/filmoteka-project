@@ -1,4 +1,3 @@
-import { spin, stopSpin } from './notiflix-spin';
 import { watchedMovies, queuedMovies } from './local-storage';
 import Notiflix from 'notiflix';
 
@@ -22,14 +21,9 @@ queredBtnEl.addEventListener('click', handleQueuedMoviesClick);
 
 myLibraryBtnEl.addEventListener('click', handleWatchedMoviesClick);
 
-spin();
-stopSpin();
-// додати eventListiner до кнопок watched i quered
-
 createLibMarkUp(watchedMovies);
 function handleWatchedMoviesClick() {
   movieWrapperEl.innerHTML = '';
-  spin();
   try {
     if (watchedMovies.length === 0) {
       clearPage();
@@ -39,14 +33,11 @@ function handleWatchedMoviesClick() {
     createLibMarkUp(watchedMovies);
   } catch (error) {
     console.error('Set state error: ', error.message);
-  } finally {
-    stopSpin();
   }
 }
 
 function handleQueuedMoviesClick() {
   movieWrapperEl.innerHTML = '';
-  spin();
   try {
     if (queuedMovies.length === 0) {
       clearPage();
@@ -55,8 +46,6 @@ function handleQueuedMoviesClick() {
     createLibMarkUp(queuedMovies);
   } catch (error) {
     console.error('Set state error: ', error.message);
-  } finally {
-    stopSpin();
   }
 }
 
