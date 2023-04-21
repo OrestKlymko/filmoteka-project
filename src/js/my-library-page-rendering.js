@@ -1,4 +1,3 @@
-import { spin, stopSpin } from './notiflix-spin';
 import { watchedMovies, queuedMovies } from './local-storage';
 import Notiflix from 'notiflix';
 
@@ -21,9 +20,6 @@ watchedBtnEl.addEventListener('click', handleWatchedMoviesClick);
 queredBtnEl.addEventListener('click', handleQueuedMoviesClick);
 
 myLibraryBtnEl.addEventListener('click', handleWatchedMoviesClick);
-
-
-// додати eventListiner до кнопок watched i quered
 
 createLibMarkUp(watchedMovies);
 function handleWatchedMoviesClick() {
