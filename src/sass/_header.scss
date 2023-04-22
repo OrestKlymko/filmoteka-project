@@ -304,7 +304,7 @@ $desktop: 1280px;
   position: absolute;
   top: -5;
   right: -5;
-  z-index: 8000;
+  z-index: 2000;
 }
 
 .sign-out {
@@ -314,7 +314,7 @@ $desktop: 1280px;
   align-items: center;
   top: 14px;
   right: 14px;
-  z-index: 6000;
+  z-index: 2000;
   height: 34px;
   padding: 10px 16px;
   cursor: pointer;

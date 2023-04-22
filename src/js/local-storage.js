@@ -76,7 +76,7 @@ async function handleQueueBtnClick(e) {
       return localStorage.setItem('queuedMovies', JSON.stringify(queuedMovies));
     } else {
       Notiflix.Notify.warning(
-        'You need to login to add a movie to your watched'
+        'You need to login to add a movie to your queue'
       );
       addToQueueBtn.textContent = 'Add to queue';
       return;
