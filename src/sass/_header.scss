@@ -315,15 +315,11 @@ $desktop: 1280px;
   top: 14px;
   right: 14px;
   z-index: 6000;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   height: 34px;
   padding: 10px 16px;
   cursor: pointer;
 
   font-family: 'Roboto';
-  font-style: normal;
   font-weight: 700;
   font-size: 12px;
   line-height: calc(14 / 12);
