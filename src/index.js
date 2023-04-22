@@ -1,3 +1,4 @@
+import './js/authentication.js';
 import './js/movie-modal.js';
 import './js/get-movie-by-id.js';
 import './js/get-movie-by-name.js';

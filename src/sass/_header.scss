@@ -299,3 +299,11 @@ $desktop: 1280px;
   height: 100%;
   margin-right: 8px;
 }
+
+
+#firebaseui-auth-container {
+  position: absolute; 
+  top: -5;
+  right: -5;
+  z-index: 9998;
+}
