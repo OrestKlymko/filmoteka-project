@@ -333,10 +333,10 @@ $desktop: 1280px;
   background-color: #b92f2c;
   border-radius: 100px;
 
-    @media screen and (min-width: $tablet) {
-      height: 38px;
-      padding: 12px 20px;
-    }
+  @media screen and (min-width: $tablet) {
+    height: 38px;
+    padding: 12px 20px;
+  }
 }
 
 .sign-out:hover,
@@ -344,5 +344,12 @@ $desktop: 1280px;
   color: #000000;
   background-color: #ffffff;
   transform: scale(1.05);
-    transition: 0.3s;
+  transition: 0.3s;
+}
+
+.firebaseui-idp-button.mdl-button.mdl-js-button.mdl-button--raised.firebaseui-idp-google.firebaseui-id-idp-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100px;
 }

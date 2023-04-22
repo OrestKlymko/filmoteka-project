@@ -9,6 +9,8 @@ import 'firebase/auth';
 const authBtn = document.querySelector('#firebaseui-auth-container');
 const signOutBtn = document.querySelector('.sign-out');
 
+authBtn.style.borderRadius = '100px';
+
 const firebaseConfig = {
   apiKey: 'AIzaSyAJniPEYyCpEkvhjqmDN6oMVrV91NEI50k',
   authDomain: 'filmoteka-5b686.firebaseapp.com',
