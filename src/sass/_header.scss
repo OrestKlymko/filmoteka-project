@@ -300,10 +300,43 @@ $desktop: 1280px;
   margin-right: 8px;
 }
 
-
 #firebaseui-auth-container {
-  position: absolute; 
+  position: absolute;
   top: -5;
   right: -5;
   z-index: 8000;
+}
+
+.sign-out {
+  position: absolute;
+  top: 14px;
+  right: 0;
+  z-index: 6000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 38px;
+  padding: 10px 16px;
+  cursor: pointer;
+
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: calc(14 / 12);
+  text-transform: uppercase;
+
+  color: #ffffff;
+  background-color: #b92f2c;
+  border-radius: 100px 0 0 100px;
+
+  transition: padding-left 300ms linear, background-color 300ms linear,
+    color 300ms linear;
+}
+
+.sign-out:hover,
+.sign-out:focus {
+  color: #000000;
+  background-color: #ffffff;
+  padding-left: 20px;
 }
