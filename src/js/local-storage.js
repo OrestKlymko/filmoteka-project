@@ -30,24 +30,11 @@ async function handleWatchBtnClick(e) {
       );
 
       if (isMovieInWatched) {
-        watchedMovies = watchedMovies.filter(movie => movie.id !== movieObj.id);
-        addToWatchedBtn.textContent = 'Add to watch';
-        localStorage.setItem(WATCHED_MOVIES, JSON.stringify(watchedMovies));
-
-        if (movieWrapperEl) {
-          createLibMarkUp(watchedMovies);
-        }
-        return;
+        return deleteMovieFromWatch(movieObj);
       }
 
-      watchedMovies.push(movieObj);
-      addToWatchedBtn.textContent = 'Remove from watched';
-      return localStorage.setItem(
-        WATCHED_MOVIES,
-        JSON.stringify(watchedMovies)
-      );
+      return addMovieToWatch(movieObj);
     } else {
-      // Користувач не авторизований
       Notiflix.Notify.warning(
         'You need to login to add a movie to your watched'
       );
@@ -67,23 +54,61 @@ async function handleQueueBtnClick(e) {
         movie => movie.id === movieObj.id
       );
       if (isMovieInQueue) {
-        queuedMovies = queuedMovies.filter(movie => movie.id !== movieObj.id);
-        addToQueueBtn.textContent = 'Add to queue';
-        localStorage.setItem('queuedMovies', JSON.stringify(queuedMovies));
-
-        if (movieWrapperEl) {
-          createLibMarkUp(queuedMovies);
-        }
-        return;
+        return deleteMovieFromQueue(movieObj);
       }
 
-      queuedMovies.push(movieObj);
-      addToQueueBtn.textContent = 'Remove from queue';
-      return localStorage.setItem('queuedMovies', JSON.stringify(queuedMovies));
+      return addMovieToQueue(movieObj);
     } else {
       Notiflix.Notify.warning('You need to login to add a movie to your queue');
       addToQueueBtn.textContent = 'Add to queue';
       return;
     }
   });
+}
+
+function deleteMovieFromWatch(array) {
+  watchedMovies = watchedMovies.filter(movie => movie.id !== array.id);
+  addToWatchedBtn.textContent = 'Add to watch';
+  localStorage.setItem(WATCHED_MOVIES, JSON.stringify(watchedMovies));
+
+  if (movieWrapperEl) {
+    createLibMarkUp(watchedMovies);
+  }
+
+  return watchedMovies;
+}
+
+function addMovieToWatch(array) {
+  watchedMovies.push(array);
+  addToWatchedBtn.textContent = 'Remove from watched';
+  localStorage.setItem(WATCHED_MOVIES, JSON.stringify(watchedMovies));
+
+  if (movieWrapperEl) {
+    createLibMarkUp(watchedMovies);
+  }
+
+  return watchedMovies;
+}
+
+function deleteMovieFromQueue(array) {
+  queuedMovies = queuedMovies.filter(movie => movie.id !== array.id);
+  addToQueueBtn.textContent = 'Add to queue';
+  localStorage.setItem('queuedMovies', JSON.stringify(queuedMovies));
+
+  if (movieWrapperEl) {
+    createLibMarkUp(queuedMovies);
+  }
+
+  return queuedMovies;
+}
+
+function addMovieToQueue(array) {
+  queuedMovies.push(array);
+  addToQueueBtn.textContent = 'Remove from queue';
+  localStorage.setItem('queuedMovies', JSON.stringify(queuedMovies));
+  if (movieWrapperEl) {
+    createLibMarkUp(queuedMovies);
+  }
+
+  return queuedMovies;
 }
