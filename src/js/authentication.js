@@ -53,6 +53,9 @@ firebase.auth().onAuthStateChanged(user => {
     authBtn.classList.add('hide');
     document.querySelector('.menu__link__library').classList.remove('hide');
     signOutBtn.classList.remove('hide');
+    if (document.querySelector('.lib-container')) {
+      signOutBtn.classList.add('hide')
+    }
   } else {
     // Користувач не авторизований
     document.querySelector('.menu__link__library').classList.add('hide');
