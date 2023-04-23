@@ -300,10 +300,52 @@ $desktop: 1280px;
   margin-right: 8px;
 }
 
-
 #firebaseui-auth-container {
-  position: absolute; 
+  position: absolute;
   top: -5;
   right: -5;
-  z-index: 8000;
+  z-index: 2000;
+}
+
+.sign-out {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 14px;
+  right: 14px;
+  z-index: 2000;
+  height: 34px;
+  padding: 10px 16px;
+  cursor: pointer;
+
+  font-family: 'Roboto';
+  font-weight: 700;
+  font-size: 12px;
+  line-height: calc(14 / 12);
+  text-transform: uppercase;
+
+  color: #ffffff;
+  background-color: #b92f2c;
+  border-radius: 100px;
+
+  @media screen and (min-width: $tablet) {
+    height: 38px;
+    padding: 12px 20px;
+  }
+}
+
+.sign-out:hover,
+.sign-out:focus {
+  color: #000000;
+  background-color: #ffffff;
+  transform: scale(1.05);
+  transition: 0.3s;
+}
+
+.firebaseui-idp-button.mdl-button.mdl-js-button.mdl-button--raised.firebaseui-idp-google.firebaseui-id-idp-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100px;
 }

@@ -6,7 +6,10 @@ import 'firebase/auth';
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
-const authBtn = document.querySelector('#firebaseui-auth-container')
+const authBtn = document.querySelector('#firebaseui-auth-container');
+const signOutBtn = document.querySelector('.sign-out');
+
+authBtn.style.borderRadius = '100px';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyAJniPEYyCpEkvhjqmDN6oMVrV91NEI50k',
@@ -40,18 +43,33 @@ const app = firebase.initializeApp(firebaseConfig);
 // const analytics = getAnalytics(app);
 
 const user = firebase.auth().onAuthStateChanged(user => {
-   return user
+  return user;
 });
 // console.log(user);
 
-
-firebase.auth().onAuthStateChanged(user => {   
+firebase.auth().onAuthStateChanged(user => {
   if (user) {
     // Користувач авторизований
-    authBtn.classList.add('hide')
+    authBtn.classList.add('hide');
     document.querySelector('.menu__link__library').classList.remove('hide');
+    signOutBtn.classList.remove('hide');
   } else {
     // Користувач не авторизований
     document.querySelector('.menu__link__library').classList.add('hide');
   }
+});
+
+signOutBtn.addEventListener('click', () => {
+  firebase
+    .auth()
+    .signOut()
+    .then(() => {
+      // Користувач вийшов з облікового запису Firebase
+      signOutBtn.classList.add('hide');
+      location.reload(); // перезавантажити сторінку
+    })
+    .catch(error => {
+      // Виникла помилка при виході з облікового запису Firebase
+      console.error(error);
+    });
 });
