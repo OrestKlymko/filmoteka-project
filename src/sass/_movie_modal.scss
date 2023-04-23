@@ -11,6 +11,7 @@
   visibility: hidden;
   opacity: 0;
   transition: visibility 0s, opacity 0.3s;
+  overflow-y: scroll;
 }
 .modal--visible {
   visibility: visible;
@@ -18,12 +19,12 @@
 }
 .modal__box {
   position: absolute;
-  top: 50%;
+  top: 70%;
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: #ffffff;
   max-width: 380px;
-
+  height: max-content;
   @media screen and (max-width: 600px) {
     min-width: 85%; 
   }
@@ -31,6 +32,7 @@
   min-width: 70%;
 
   @media screen and (min-width: 768px) {
+    top: 50%;
     min-width: 0;
     max-width: 704px;
     height: auto;
