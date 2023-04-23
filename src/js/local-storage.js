@@ -10,7 +10,6 @@ const QUEUE_MOVIES = 'queuedMovies';
 export let watchedMovies =
   JSON.parse(localStorage.getItem(WATCHED_MOVIES)) || [];
 export let queuedMovies = JSON.parse(localStorage.getItem(QUEUE_MOVIES)) || [];
-// import { watchedMovies, queuedMovies } from './local-storage';
 
 const addToWatchedBtn = document.querySelector('.watchedBtn');
 const addToQueueBtn = document.querySelector('.queueBtn');
@@ -75,7 +74,7 @@ function deleteMovieFromWatch(array) {
     createLibMarkUp(watchedMovies);
   }
 
-  return watchedMovies;
+  return;
 }
 
 function addMovieToWatch(array) {
@@ -87,7 +86,7 @@ function addMovieToWatch(array) {
     createLibMarkUp(watchedMovies);
   }
 
-  return watchedMovies;
+  return;
 }
 
 function deleteMovieFromQueue(array) {
@@ -99,16 +98,17 @@ function deleteMovieFromQueue(array) {
     createLibMarkUp(queuedMovies);
   }
 
-  return queuedMovies;
+  return;
 }
 
 function addMovieToQueue(array) {
   queuedMovies.push(array);
   addToQueueBtn.textContent = 'Remove from queue';
   localStorage.setItem('queuedMovies', JSON.stringify(queuedMovies));
+
   if (movieWrapperEl) {
     createLibMarkUp(queuedMovies);
   }
 
-  return queuedMovies;
+  return;
 }
