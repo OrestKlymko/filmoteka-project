@@ -1,5 +1,4 @@
 import getMovieById from './get-movie-by-id';
-import { createLibMarkUp } from './lib-render';
 import Notiflix from 'notiflix';
 import firebase from 'firebase/compat/app';
 import 'firebase/auth';
@@ -9,11 +8,11 @@ const QUEUE_MOVIES = 'queuedMovies';
 
 export let watchedMovies =
   JSON.parse(localStorage.getItem(WATCHED_MOVIES)) || [];
-export let queuedMovies = JSON.parse(localStorage.getItem(QUEUE_MOVIES)) || [];
+export let queuedMovies = 
+  JSON.parse(localStorage.getItem(QUEUE_MOVIES)) || [];
 
 const addToWatchedBtn = document.querySelector('.watchedBtn');
 const addToQueueBtn = document.querySelector('.queueBtn');
-const movieWrapperEl = document.querySelector('.lib-container');
 
 addToWatchedBtn.addEventListener('click', handleWatchBtnClick);
 addToQueueBtn.addEventListener('click', handleQueueBtnClick);
@@ -70,10 +69,6 @@ function deleteMovieFromWatch(array) {
   addToWatchedBtn.textContent = 'Add to watch';
   localStorage.setItem(WATCHED_MOVIES, JSON.stringify(watchedMovies));
 
-  if (movieWrapperEl) {
-    createLibMarkUp(watchedMovies);
-  }
-
   return;
 }
 
@@ -81,10 +76,6 @@ function addMovieToWatch(array) {
   watchedMovies.push(array);
   addToWatchedBtn.textContent = 'Remove from watched';
   localStorage.setItem(WATCHED_MOVIES, JSON.stringify(watchedMovies));
-
-  if (movieWrapperEl) {
-    createLibMarkUp(watchedMovies);
-  }
 
   return;
 }
@@ -94,10 +85,6 @@ function deleteMovieFromQueue(array) {
   addToQueueBtn.textContent = 'Add to queue';
   localStorage.setItem('queuedMovies', JSON.stringify(queuedMovies));
 
-  if (movieWrapperEl) {
-    createLibMarkUp(queuedMovies);
-  }
-
   return;
 }
 
@@ -105,10 +92,6 @@ function addMovieToQueue(array) {
   queuedMovies.push(array);
   addToQueueBtn.textContent = 'Remove from queue';
   localStorage.setItem('queuedMovies', JSON.stringify(queuedMovies));
-
-  if (movieWrapperEl) {
-    createLibMarkUp(queuedMovies);
-  }
 
   return;
 }

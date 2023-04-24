@@ -1,5 +1,6 @@
 import getMovieById from './get-movie-by-id.js';
-import { watchedMovies, queuedMovies } from './local-storage';  
+import { watchedMovies, queuedMovies } from './local-storage';
+import { createLibMarkUp } from './lib-render';
 
 const modal = document.querySelector('.modal');
 const title = document.querySelector('.js-movie-title');
@@ -19,7 +20,9 @@ const queueBtn = document.querySelector('.queueBtn');
 closeButton.addEventListener('click', closeModal);
 modal.addEventListener('click', handleBackdropClick);
 
-const movieList = document.querySelector('.js-movies-wrapper') || document.querySelector('.lib-container');
+const movieList =
+  document.querySelector('.js-movies-wrapper') ||
+  document.querySelector('.lib-container');
 
 movieList.addEventListener('click', event => {
   const movieCard = event.target.closest('.carditem');
@@ -50,8 +53,8 @@ movieList.addEventListener('click', event => {
   document.documentElement.style.overflowY = 'hidden';
   window.addEventListener('keydown', handleEsc);
 
-  checkMovieInWatched(movieId)
-  checkMovieInQueue(movieId)
+  checkMovieInWatched(movieId);
+  checkMovieInQueue(movieId);
 });
 
 function handleBackdropClick(e) {
@@ -73,6 +76,20 @@ function closeModal() {
   window.removeEventListener('keydown', handleEsc);
   modal.classList.remove('modal--visible');
   document.documentElement.style.overflowY = 'auto';
+
+  if (
+    document.querySelector('.lib-container') &&
+    modal.getAttribute('data-page') === 'watched'
+  ) {
+    return createLibMarkUp(watchedMovies);
+  }
+
+  if (
+    document.querySelector('.lib-container') &&
+    modal.getAttribute('data-page') === 'queue'
+  ) {
+    return createLibMarkUp(queuedMovies);
+  }
 }
 
 function handleEsc(e) {
@@ -82,8 +99,8 @@ function handleEsc(e) {
 }
 
 function checkMovieInWatched(id) {
-  const isMovieWatched = watchedMovies.some(el => el.id === Number(id))
-  
+  const isMovieWatched = watchedMovies.some(el => el.id === Number(id));
+
   if (isMovieWatched) {
     watchedBtn.textContent = 'Remove from watched';
   } else {
@@ -92,8 +109,8 @@ function checkMovieInWatched(id) {
 }
 
 function checkMovieInQueue(id) {
-  const isMovieQueue = queuedMovies.some(el => el.id === Number(id))
-  
+  const isMovieQueue = queuedMovies.some(el => el.id === Number(id));
+
   if (isMovieQueue) {
     queueBtn.textContent = 'Remove from queue';
   } else {

@@ -10,6 +10,7 @@ Notiflix.Notify.init({
   // ...
 });
 
+const modal = document.querySelector('.modal');
 const movieWrapperEl = document.querySelector('.lib-container');
 const myLibraryBtnEl = document.querySelector('.menu__link__library');
 const watchedBtnEl = document.querySelector('.library__link__watched');
@@ -24,6 +25,7 @@ myLibraryBtnEl.addEventListener('click', handleWatchedMoviesClick);
 
 createLibMarkUp(watchedMovies);
 function handleWatchedMoviesClick() {
+  modal.setAttribute('data-page', 'watched');
   try {
     if (watchedMovies.length === 0) {
       clearPage();
@@ -38,11 +40,13 @@ function handleWatchedMoviesClick() {
 }
 
 function handleQueuedMoviesClick() {
+  modal.setAttribute('data-page', 'queue');
   try {
     if (queuedMovies.length === 0) {
       clearPage();
       return;
     }
+
     movieWrapperEl.innerHTML = '';
     createLibMarkUp(queuedMovies);
   } catch (error) {
