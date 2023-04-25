@@ -9,7 +9,7 @@ export function createLibMarkUp(results) {
       const genresArray = movie.genres.map(genre => genre.name);
       let genresNames = '';
       if (genresArray.length > 2) {
-        genresNames = arrayLengthCheck(genresArray).join(', ') + ', other';
+        genresNames = genresArray.slice(0, 2).join(', ') + ', other';
       } else {
         genresNames = genresArray.join(', ');
       }
@@ -37,8 +37,4 @@ export function createLibMarkUp(results) {
   movieWrapperEl.innerHTML = '';
   movieWrapperEl.insertAdjacentHTML('beforeend', markUp);
   return markUp;
-}
-
-function arrayLengthCheck(array) {
-  return array.slice(0, 2);
 }
