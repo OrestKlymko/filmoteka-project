@@ -1,12 +1,12 @@
-import {spin, stopSpin} from './notiflix-spin'
-
+// import {spin, stopSpin} from './notiflix-spin'
+import {showSpinner, hideSpinner} from './spinner'
 export class getPopularMovies {
   BASE_URL = 'https://api.themoviedb.org/3';
   API_KEY = '?api_key=f7d7a9b2e374f67b5381a74b61fb7dc2';
   page = 1;
 
   async fetchPopularMovies() {
-    spin()
+    showSpinner()
     try {
       const response = await fetch(
         `${this.BASE_URL}/movie/popular${this.API_KEY}&page=${this.page}&language=en-US`
@@ -17,7 +17,7 @@ export class getPopularMovies {
 
       throw new Error(error.message);
     } finally {
-      stopSpin()
+      hideSpinner()
     }
   }
   incrementPage() {
