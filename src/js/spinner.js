@@ -1,16 +1,10 @@
 
+const loadingDiv = document.getElementById('loading');
 
-export function spinnerLoader() {
-  const spinner = document.querySelector('.cs-loader')
-  spinner.classList.remove('is-hidden')
-  
-
+export function showSpinner() {
+  loadingDiv.style.visibility = 'visible';
 }
 
-// Потрібна перевірка на загрузку останньої сторінки
-
-// if (data.total_page === current.page || data.total_page === 0){
-  // spinner.classList.add('is-hidden')
-  // return
-// }  spinner.classList.remove('is-hidden')
-
+export function hideSpinner() {
+  loadingDiv.style.visibility = 'hidden';
+}

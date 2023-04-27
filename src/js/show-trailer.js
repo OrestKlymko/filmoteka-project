@@ -21,7 +21,7 @@ export default async function onTrailerButtonClick(e) {
   }
 }
 
-function onLightboxClose() {
+function onLightboxClose() { 
   modal.classList.add('modal--visible');
   document.removeEventListener('keydown', onLightboxKeyPress);
 }

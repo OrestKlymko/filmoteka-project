@@ -17,7 +17,7 @@
   "bugs": {
     "url": "https://github.com/OrestKlymko/filmoteka-project/issues"
   },
-  "dependencies": {
+  "dependencies": { 
     "firebase": "^9.20.0",
     "firebaseui": "^6.0.2",
     "modern-normalize": "^1.1.0",
