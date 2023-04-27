@@ -29,7 +29,7 @@
 
 ###
 
-<p align="left">I'm Fullstack developer from Ukraine. <br><br>With my team we developed a website with advanced functionality for watching movies. The site features Google account login to a personal cabinet, where users can add movies to their watchlist or create a list of movies they have already watched. Authentication is implemented using Firebase. The site also has pagination for comfortable navigation between pages. Clicking on "GoIT" on the footer you will see a modal window with all project participants.</p>
+<br>With my team we developed a website with advanced functionality for watching movies. The site features Google account login to a personal cabinet, where users can add movies to their watchlist or create a list of movies they have already watched. Authentication is implemented using Firebase. The site also has pagination for comfortable navigation between pages. Clicking on "GoIT" on the footer you will see a modal window with all project participants.</p>
 
 ###
 
@@ -60,9 +60,3 @@
 ###
 
 
-<div align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=orestklymko&hide_title=false&hide_rank=false&show_icons=true&include_all_commits=true&count_private=true&disable_animations=false&theme=dracula&locale=en&hide_border=false&order=1" height="150" alt="stats graph"  />
-  <img src="https://github-readme-stats.vercel.app/api/top-langs?username=orestklymko&locale=en&hide_title=false&layout=compact&card_width=320&langs_count=5&theme=dracula&hide_border=false&order=2" height="150" alt="languages graph"  />
-</div>
-
-###
